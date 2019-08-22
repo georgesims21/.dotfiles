@@ -1,6 +1,7 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
+
 # ----- Autostart ----- #
 
 exec expressvpn connect
@@ -289,6 +290,12 @@ set_from_resource $term_color15    color15
 
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+
+
+# Set keyboard repeat rate and delay
+exec termite -e xset r rate 250 30
+
+
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
