@@ -18,6 +18,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vi3="vim ~/.config/i3/config"
+alias UNI="~/googled/shared/Uni/"
+alias CON="~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
+alias REQ="~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
 
 purple=$(tput setaf 139);
 blue=$(tput setaf 109);
