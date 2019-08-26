@@ -1,10 +1,13 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
-
 # ----- Autostart ----- #
 
+# Autostart VPN
 exec expressvpn connect
+
+# Autostart Google Drive sync
+exec insync start
 
 # ----- Basics ----- #
 

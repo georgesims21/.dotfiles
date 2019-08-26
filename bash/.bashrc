@@ -17,6 +17,7 @@ alias p="sudo pacman"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias vi3="vim ~/.config/i3/config"
 
 purple=$(tput setaf 139);
 blue=$(tput setaf 109);

@@ -1,0 +1,13 @@
+! -*- coding: utf-8 -*-
+! Make caps lock into escape
+! from xahlee.info
+!
+! Save this file as ~/.Xmodmap
+! Run $ xmodmap ~/.Xmodmap
+! Reboot
+
+! keycode 9 = Escape NoSymbol Escape
+! keycode 66 = Caps_lock NoSymbol Caps_Lock
+
+clear Lock
+keycode 66 = Escape NoSymbol Escape
