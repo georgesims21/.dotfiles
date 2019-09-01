@@ -1,4 +1,4 @@
-" -------------------------
+"  -------------------------
 " PLUGINS
 " -------------------------
 
@@ -19,10 +19,14 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vimwiki/vimwiki'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'vim-scripts/vim-auto-save'
+ 
+let g:wimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 call vundle#end()
 filetype plugin indent on 
-
 
 " -------------------------
 " BASICS
@@ -45,6 +49,21 @@ let mapleader = ","
 
 " Syntax highlighting
 syntax on
+
+" Folding
+set foldmethod=marker
+
+" -------------------------
+" PLUGIN MODS
+" -------------------------
+
+" Let Vim-wiki accept .md
+
+" Assign ,p to preview markdown documents
+let vim_markdown_preview_hotkey='<leader>p'
+
+" Enable auto-save on Vim startup
+let g:auto_save = 1
 
 " -------------------------
 " REMAPPING

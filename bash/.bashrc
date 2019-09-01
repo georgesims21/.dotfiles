@@ -18,9 +18,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vi3="vim ~/.config/i3/config"
-alias UNI="~/googled/shared/Uni/"
-alias CON="~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
-alias REQ="~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
+alias vbrc="vim ~/.bashrc"
+alias vvrc="vim ~/.vimrc"
+alias uni="cd ~/googled/shared/Uni/"
+alias con="cd ~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
+alias req="cd ~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
+alias hibernate="systemctl hibernate"
 
 purple=$(tput setaf 139);
 blue=$(tput setaf 109);
