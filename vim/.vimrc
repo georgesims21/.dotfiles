@@ -22,8 +22,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vimwiki/vimwiki'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-scripts/vim-auto-save'
+"Plugin 'tpope/vim-markdown'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
  
-let g:wimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 call vundle#end()
 filetype plugin indent on 
@@ -53,17 +55,33 @@ syntax on
 " Folding
 set foldmethod=marker
 
+" Don't shoe --insert--
+set noshowmode
+
+" Highlight cursor line
+set cursorline
+
 " -------------------------
 " PLUGIN MODS
 " -------------------------
 
 " Let Vim-wiki accept .md
+let g:vimwiki_list = [{'path': '~/'}]
+" Let Vim-wiki fold 
+"let g:vimwiki_folding='expr'
+" Let Vim-wiki use .md only within the wiki
+"let g:vimwiki_global_ext = 0
 
 " Assign ,p to preview markdown documents
 let vim_markdown_preview_hotkey='<leader>p'
 
 " Enable auto-save on Vim startup
 let g:auto_save = 1
+
+" Theme for vim-airline bar
+let g:airline_theme='base16'
+
+
 
 " -------------------------
 " REMAPPING
@@ -105,3 +123,4 @@ nnoremap <leader>k <c-w>k
 nnoremap <leader>j <c-w>j
 
 nnoremap <leader>n :NERDTreeToggle<CR>
+

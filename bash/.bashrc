@@ -14,18 +14,24 @@ set -o vi
 # Aliases
 alias v="vim"
 alias p="sudo pacman"
+alias pi="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias home="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vi3="vim ~/.config/i3/config"
 alias vbrc="vim ~/.bashrc"
-alias vvrc="vim ~/.vimrc"
+alias vrc="vim ~/.vimrc"
+alias vin="vim ~/index.wiki"
 alias uni="cd ~/googled/shared/Uni/"
 alias con="cd ~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
 alias req="cd ~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
 alias hibernate="systemctl hibernate"
+alias keeb="xmodmap ~/.Xmodmap"
 
 purple=$(tput setaf 139);
+green=$(tput setaf 70);
 blue=$(tput setaf 109);
 grey=$(tput setaf 254);
 white=$(tput setaf 255);
@@ -33,10 +39,10 @@ bold=$(tput bold);
 reset=$(tput sgr0);
 
 PS1="\[${bold}\]\n";
-PS1+="\[${purple}\]\u "; #Username
+PS1+="\[${white}\]_\[${green}\] \u "; #Username
 PS1+="\[${blue}\][ \W ]"; #Working dir
 #PS1+="\[${blue}\] $(git_branch)"; # Not working properly
-PS1+="\[${white}\]\n └─ ";
+PS1+="\[${white}\]\n└─";
 PS1+="\[${white}\]$ "; #Prompt on new line
 PS1+="\[${reset}\]";
 export PS1;

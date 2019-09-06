@@ -33,7 +33,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+# bindsym $mod+Shift+l exec --no-startup-id blurlock
 
 # ----- Main program shortcuts ----- #
 
@@ -42,6 +42,9 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+w exec qutebrowser
 bindsym $mod+r exec termite -e ranger
 bindsym $mod+e exec tmux
+bindsym $mod+u exec eclipse
+bindsym $mod+o exec okular
+bindsym $mod+i exec termite -e "vim index.wiki"
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -52,7 +55,10 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 exec --no-startup-id start_conky_maia
-exec --no-startup-id xautolock -time 10 -locker blurlock
+
+# Uninstalled xautolock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -149,7 +155,8 @@ hide_edge_borders none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+#font xft:URWGothic-Book 21
+font pango:inconsolata 15
 
 
 # switch to workspace with urgent window automatically
@@ -159,7 +166,7 @@ for_window [urgent=latest] focus
 
 # Set inner/outer gaps
 gaps inner 5
-gaps outer -5
+gaps outer 5
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -214,7 +221,7 @@ mode "$mode_gaps_outer" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	font pango:mono 10
+	font pango:Inconsolata 15
 	#i3bar_command i3bar
 	status_command i3blocks	
 	strip_workspace_numbers yes
@@ -281,7 +288,7 @@ set_from_resource $term_color15    color15
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #00e600 #00e600 #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
