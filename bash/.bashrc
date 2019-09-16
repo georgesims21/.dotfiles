@@ -29,6 +29,7 @@ alias con="cd ~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
 alias req="cd ~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
 alias hibernate="systemctl hibernate"
 alias keeb="xmodmap ~/.Xmodmap"
+alias disp="xrandr --output eDP1 --off --output DP1 --auto"
 
 purple=$(tput setaf 139);
 green=$(tput setaf 70);

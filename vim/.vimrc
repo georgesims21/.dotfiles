@@ -61,6 +61,10 @@ set noshowmode
 " Highlight cursor line
 set cursorline
 
+" Allows for cursor to stay in middle of screen while scrolling.. doesn't
+" function as hoped
+" set scrolloff=10
+
 " -------------------------
 " PLUGIN MODS
 " -------------------------
@@ -123,4 +127,7 @@ nnoremap <leader>k <c-w>k
 nnoremap <leader>j <c-w>j
 
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+nnoremap <expr> <Leader>z 0 == &scrolloff ? ':setlocal scrolloff=999<CR>' : ':setlocal scrolloff=0<CR>'
+
 
