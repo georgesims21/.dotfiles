@@ -22,6 +22,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vimwiki/vimwiki'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-scripts/vim-auto-save'
+"Plugin 'lervag/vimtex'
+Plugin 'xuhdev/vim-latex-live-preview'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
@@ -29,6 +31,9 @@ Plugin 'vim-scripts/vim-auto-save'
 
 call vundle#end()
 filetype plugin indent on 
+
+" Latex-live-preview
+"autocmd Filetype tex setl updatetime=1
 
 " -------------------------
 " BASICS
@@ -77,7 +82,8 @@ let g:vimwiki_list = [{'path': '~/'}]
 "let g:vimwiki_global_ext = 0
 
 " Assign ,p to preview markdown documents
-let vim_markdown_preview_hotkey='<leader>p'
+"let g:livepreview_previewer = 'open -a okular'
+let g:vim_markdown_preview_hotkey='<leader>p'
 
 " Enable auto-save on Vim startup
 let g:auto_save = 1
