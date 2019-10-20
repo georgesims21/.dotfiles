@@ -15,13 +15,13 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vi3="vim ~/.config/i3/config"
-alias vbrc="vim ~/.bashrc"
+alias vbrc="vim ~/.zshrc"
 alias vrc="vim ~/.vimrc"
 alias vin="vim ~/index.wiki"
 alias uni="cd ~/googled/shared/Uni/"
 alias con="cd ~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
 alias req="cd ~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
-alias cnm="cd ~/googled/shared/programming/java/candm/Concurrency_Multithreading"
+alias prog="cd ~/googled/shared/programming"
 alias hibernate="systemctl hibernate"
 alias keeb="xmodmap ~/.Xmodmap"
 alias disp="xrandr --output eDP1 --off --output DP1 --auto"
@@ -34,6 +34,7 @@ alias progr="cd ~/googled/shared/programming/python/reqeng/ReqEng"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="geometry/geometry"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -93,7 +94,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git
+	zsh-autosuggestions
+	zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

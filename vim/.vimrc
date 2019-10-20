@@ -74,8 +74,13 @@ set cursorline
 " PLUGIN MODS
 " -------------------------
 
-" Let Vim-wiki accept .md
-let g:vimwiki_list = [{'path': '~/'}]
+" before changing to MD
+"let g:vimwiki_list = [{'path': '~/'}]
+let g:vimwiki_list = [{ 'path': '~/',
+       \ 'syntax':'markdown', 'ext': '.md' }]
+" leaves colorscheme and md snippets alone
+"autocmd FileType vimwiki set ft=markdown
+
 " Let Vim-wiki fold 
 "let g:vimwiki_folding='expr'
 " Let Vim-wiki use .md only within the wiki
