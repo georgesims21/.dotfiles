@@ -1,10 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Vi mode 
+bindkey -v
+export KEYTIMEOUT=1
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/george/.oh-my-zsh"
-# Vi mode 
-set -o vi
 
 # Aliases
 alias v="vim"
@@ -96,7 +98,8 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 	zsh-autosuggestions
-	zsh-syntax-highlighting)
+	zsh-syntax-highlighting
+        zsh-vim-mode)
 
 source $ZSH/oh-my-zsh.sh
 

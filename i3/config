@@ -4,8 +4,12 @@
 set $mod Mod1
 
 # ----- Autostart ----- #
+# https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/
+# Mapping control and esc to caps
+exec termite -e xcape -e 'Control_L=Escape'
 
 # Autostart VPN
+#systemctl start expressvpn.service
 exec expressvpn connect
 
 # Autostart Google Drive sync

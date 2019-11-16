@@ -20,14 +20,16 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vimwiki/vimwiki'
-Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-scripts/vim-auto-save'
-"Plugin 'lervag/vimtex'
 Plugin 'xuhdev/vim-latex-live-preview'
-"Plugin 'tpope/vim-markdown'
-"Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
- 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets' 
+Plugin 'Shougo/neocomplete.vim' 
+Plugin 'rentalcustard/exuberant-ctags' 
+Plugin 'vim-syntastic/syntastic' 
+Plugin 'Townk/vim-autoclose' 
 
 call vundle#end()
 filetype plugin indent on 
@@ -66,6 +68,12 @@ set noshowmode
 " Highlight cursor line
 set cursorline
 
+" Replace tabs by whitespace
+set expandtab
+
+" Set tab length
+set shiftwidth=2
+
 " Allows for cursor to stay in middle of screen while scrolling.. doesn't
 " function as hoped
 " set scrolloff=10
@@ -75,9 +83,9 @@ set cursorline
 " -------------------------
 
 " before changing to MD
-"let g:vimwiki_list = [{'path': '~/'}]
-let g:vimwiki_list = [{ 'path': '~/',
-       \ 'syntax':'markdown', 'ext': '.md' }]
+let g:vimwiki_list = [{'path': '~/', 'path_html': '~/vimwiki_html/'}]
+"let g:vimwiki_list = [{ 'path': '~/',
+"       \ 'syntax':'markdown', 'ext': '.md' }]
 " leaves colorscheme and md snippets alone
 "autocmd FileType vimwiki set ft=markdown
 
@@ -88,14 +96,15 @@ let g:vimwiki_list = [{ 'path': '~/',
 
 " Assign ,p to preview markdown documents
 "let g:livepreview_previewer = 'open -a okular'
-let g:vim_markdown_preview_hotkey='<leader>p'
-
+"
 " Enable auto-save on Vim startup
 let g:auto_save = 1
 
 " Theme for vim-airline bar
 let g:airline_theme='base16'
 
+" neocomplete autostart
+let g:neocomplete#enable_at_startup = 1
 
 
 " -------------------------
