@@ -8,6 +8,9 @@ set $mod Mod1
 # Mapping control and esc to caps
 exec termite -e xcape -e 'Control_L=Escape'
 
+# Wallpaper
+exec --no-startup-id nitrogen --restore
+
 # Autostart VPN
 #systemctl start expressvpn.service
 exec expressvpn connect
@@ -229,6 +232,8 @@ mode "$mode_gaps_outer" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
+        mode hide
+        hidden_state hide
 	font pango:Inconsolata 15
 	#i3bar_command i3bar
 	status_command i3blocks	
