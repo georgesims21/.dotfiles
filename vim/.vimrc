@@ -24,11 +24,11 @@ Plugin 'vim-scripts/vim-auto-save'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets' 
-Plugin 'Shougo/neocomplete.vim' 
-Plugin 'rentalcustard/exuberant-ctags' 
-Plugin 'vim-syntastic/syntastic' 
+"Plugin 'garbas/vim-snipmate'
+"Plugin 'honza/vim-snippets' 
+"Plugin 'Shougo/neocomplete.vim' 
+"Plugin 'rentalcustard/exuberant-ctags' 
+"Plugin 'vim-syntastic/syntastic' 
 Plugin 'Townk/vim-autoclose' 
 
 call vundle#end()
@@ -68,11 +68,14 @@ set noshowmode
 " Highlight cursor line
 set cursorline
 
+" ** Indentation rules **
 " Replace tabs by whitespace
 set expandtab
-
 " Set tab length
-set shiftwidth=2
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set smartindent
 
 " Allows for cursor to stay in middle of screen while scrolling.. doesn't
 " function as hoped

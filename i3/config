@@ -13,7 +13,7 @@ exec --no-startup-id nitrogen --restore
 
 # Autostart VPN
 #systemctl start expressvpn.service
-exec expressvpn connect
+#exec expressvpn connect
 
 # Autostart Google Drive sync
 exec insync start
