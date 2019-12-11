@@ -53,7 +53,7 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+w exec firefox
 bindsym $mod+r exec termite -e ranger
 bindsym $mod+e exec tmux
-bindsym $mod+u exec eclipse
+bindsym $mod+u exec atom
 bindsym $mod+o exec okular
 bindsym $mod+i exec termite -e "vim index.wiki"
 
@@ -65,7 +65,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 
 # Uninstalled xautolock
 # exec --no-startup-id xautolock -time 10 -locker blurlock
