@@ -111,6 +111,30 @@ let g:neocomplete#enable_at_startup = 1
 
 
 " -------------------------
+" CURSOR CONTROL
+" -------------------------
+" https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+" Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[6 q"' | redraw!
+  au InsertEnter,InsertChange *
+    \ if v:insertmode == 'i' | 
+    \   silent execute '!echo -ne "\e[4 q"' | redraw! |
+    \ elseif v:insertmode == 'r' |
+    \   silent execute '!echo -ne "\e[6 q"' | redraw! |
+    \ endif
+  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
+
+" -------------------------
 " REMAPPING
 " -------------------------
 
