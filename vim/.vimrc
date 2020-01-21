@@ -1,3 +1,6 @@
+" Set ',' as <leader> 
+let mapleader = ","
+
 "  -------------------------
 " PLUGINS
 " -------------------------
@@ -30,6 +33,7 @@ Plugin 'tomtom/tlib_vim'
 "Plugin 'rentalcustard/exuberant-ctags' 
 "Plugin 'vim-syntastic/syntastic' 
 Plugin 'Townk/vim-autoclose' 
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on 
@@ -53,8 +57,6 @@ colorscheme gruvbox-material-soft
 " Line numbers + numbers relative to the current line
 set number relativenumber
 
-" Set ',' as <leader> 
-let mapleader = ","
 
 " Syntax highlighting
 syntax on
