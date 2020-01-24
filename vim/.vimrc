@@ -1,4 +1,4 @@
-" Set ',' as <leader> 
+
 let mapleader = ","
 
 "  -------------------------
@@ -27,11 +27,13 @@ Plugin 'vim-scripts/vim-auto-save'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'rhysd/vim-llvm'
 "Plugin 'garbas/vim-snipmate'
 "Plugin 'honza/vim-snippets' 
 "Plugin 'Shougo/neocomplete.vim' 
 "Plugin 'rentalcustard/exuberant-ctags' 
-"Plugin 'vim-syntastic/syntastic' 
+Plugin 'vim-syntastic/syntastic' 
 Plugin 'Townk/vim-autoclose' 
 Plugin 'scrooloose/nerdcommenter'
 
@@ -111,6 +113,12 @@ let g:airline_theme='base16'
 " neocomplete autostart
 let g:neocomplete#enable_at_startup = 1
 
+" --- cpp-enhanced-highlight ---
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+
 
 " -------------------------
 " CURSOR CONTROL
@@ -160,20 +168,17 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Refresh freshly edited .vimrc without exiting (must still :w) ,rv (,RefreshVim)
 nnoremap <leader>rv :source $MYVIMRC<cr>
 
-" To uppercase just written word 
-inoremap <c-u> <esc>bgUawea
-
 " To move to next buffer
-nnoremap <leader>t :bn<CR>
+nnoremap <C-M> :bn<CR>
 
 " To move to previous buffer
-nnoremap <leader>r :bp<CR>
+nnoremap <C-N> :bp<CR>
 
 " Move around split screens
-nnoremap <leader>h <c-w>h
-nnoremap <leader>l <c-w>l
-nnoremap <leader>k <c-w>k
-nnoremap <leader>j <c-w>j
+nnoremap <C-H> <c-w>h
+nnoremap <C-L> <c-w>l
+nnoremap <C-K> <c-w>k
+nnoremap <C-J> <c-w>j
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 
