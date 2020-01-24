@@ -1,4 +1,3 @@
-
 let mapleader = ","
 
 "  -------------------------
@@ -21,6 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sainnhe/gruvbox-material'
+Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vimwiki/vimwiki'
 Plugin 'vim-scripts/vim-auto-save'
@@ -29,19 +29,12 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-llvm'
-"Plugin 'garbas/vim-snipmate'
-"Plugin 'honza/vim-snippets' 
-"Plugin 'Shougo/neocomplete.vim' 
-"Plugin 'rentalcustard/exuberant-ctags' 
 Plugin 'vim-syntastic/syntastic' 
 Plugin 'Townk/vim-autoclose' 
 Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on 
-
-" Latex-live-preview
-"autocmd Filetype tex setl updatetime=1
 
 " -------------------------
 " BASICS
@@ -54,11 +47,10 @@ set hidden
 set autowriteall
 
 " Theme used, -soft, -hard or none is available
-colorscheme gruvbox-material-soft
+colorscheme gruvbox-material-hard
 
 " Line numbers + numbers relative to the current line
 set number relativenumber
-
 
 " Syntax highlighting
 syntax on
@@ -81,36 +73,17 @@ set tabstop=4
 set autoindent
 set smartindent
 
-" Allows for cursor to stay in middle of screen while scrolling.. doesn't
-" function as hoped
-" set scrolloff=10
-
 " -------------------------
 " PLUGIN MODS
 " -------------------------
 
-" before changing to MD
-let g:vimwiki_list = [{'path': '~/', 'path_html': '~/vimwiki_html/'}]
-"let g:vimwiki_list = [{ 'path': '~/',
-"       \ 'syntax':'markdown', 'ext': '.md' }]
-" leaves colorscheme and md snippets alone
-"autocmd FileType vimwiki set ft=markdown
-
-" Let Vim-wiki fold 
-"let g:vimwiki_folding='expr'
-" Let Vim-wiki use .md only within the wiki
-"let g:vimwiki_global_ext = 0
-
-" Assign ,p to preview markdown documents
-"let g:livepreview_previewer = 'open -a okular'
-"
-" Enable auto-save on Vim startup
+" --- vim-auto-save ---
 let g:auto_save = 1
 
-" Theme for vim-airline bar
-let g:airline_theme='base16'
+" --- vim-airline-themes ---
+let g:airline_theme='deus'
 
-" neocomplete autostart
+" --- neocomplete --- 
 let g:neocomplete#enable_at_startup = 1
 
 " --- cpp-enhanced-highlight ---
@@ -118,7 +91,6 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
-
 
 " -------------------------
 " CURSOR CONTROL
@@ -181,7 +153,3 @@ nnoremap <C-K> <c-w>k
 nnoremap <C-J> <c-w>j
 
 nnoremap <leader>n :NERDTreeToggle<CR>
-
-nnoremap <expr> <Leader>z 0 == &scrolloff ? ':setlocal scrolloff=999<CR>' : ':setlocal scrolloff=0<CR>'
-
-

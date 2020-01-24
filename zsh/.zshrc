@@ -8,41 +8,8 @@ export KEYTIMEOUT=1
 # Path to your oh-my-zsh installation.
 export ZSH="/home/george/.oh-my-zsh"
 
-# Aliases
-alias v="vim"
-alias p="sudo pacman"
-alias pi="sudo pacman -S"
-alias pu="sudo pacman -Syu"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias vi3="vim ~/.config/i3/config"
-alias vbrc="vim ~/.zshrc"
-alias vrc="vim ~/.vimrc"
-alias vin="vim ~/index.wiki"
-alias uni="cd ~/googled/shared/Uni/"
-alias con="cd ~/googled/shared/Uni/YEAR\ 3/Concurrency\ and\ Multithreading/"
-alias req="cd ~/googled/shared/Uni/YEAR\ 3/Requirements\ Engineering/"
-alias prog="cd ~/googled/shared/programming"
-alias hibernate="systemctl hibernate"
-alias keeb="xmodmap ~/.Xmodmap"
-alias disp="xrandr --output eDP1 --off --output DP1 --auto"
-alias dispoff="xrandr --output eDP1 --auto --output DP1 --off"
-alias prog="cd ~/googled/shared/programming"
-alias progr="cd ~/googled/shared/programming/python/reqeng/ReqEng"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="geometry/geometry"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Theme
+ZSH_THEME="geometry/geometry"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -111,11 +78,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -124,10 +91,24 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Aliases
+alias v="vim"
+alias p="sudo pacman"
+alias pi="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias vi3="vim ~/.config/i3/config"
+alias vbrc="vim ~/.zshrc"
+alias vrc="vim ~/.vimrc"
+alias vin="vim ~/index.wiki"
+alias hibernate="systemctl hibernate"
+alias keeb="xmodmap ~/.Xmodmap"
+alias disp="xrandr --output eDP1 --off --output DP1 --auto"
+alias dispoff="xrandr --output eDP1 --auto --output DP1 --off"
+alias vf='vim $(fzf)'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
