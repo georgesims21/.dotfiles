@@ -9,7 +9,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/george/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
 ZSH_THEME="geometry/geometry"
@@ -104,11 +104,10 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias vi3="vim ~/.config/i3/config"
-alias vbrc="vim ~/.zshrc"
+alias vzrc="vim ~/.zshrc"
 alias vrc="vim ~/.vimrc"
-alias vin="vim ~/index.wiki"
+alias dotfiles="cd ~/github/.dotfiles"
 alias hibernate="systemctl hibernate"
-alias keeb="xmodmap ~/.Xmodmap"
 alias disp="xrandr --output eDP1 --off --output DP1 --auto"
 alias dispoff="xrandr --output eDP1 --auto --output DP1 --off"
 alias vf='vim $(fzf)'

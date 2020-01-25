@@ -7,9 +7,11 @@ Collection of personal configfiles (dotfiles) for various programs
 * ranger
 * vim
 * tmux
-* xcape (for esc/capslock swap)
+* ttf-inconsolata
+* Valgrind
 
 For the caps->esc & ctrl on hold:
 https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/
 use the interception delay.git one, and don't forget to do: sudo systemctl start udevmon.service as well!
+
 
