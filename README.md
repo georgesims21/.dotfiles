@@ -9,3 +9,6 @@ Collection of personal configfiles (dotfiles) for various programs
 * tmux
 * xcape (for esc/capslock swap)
 
+For the caps->esc & ctrl on hold:
+https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/
+
