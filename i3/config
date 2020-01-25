@@ -7,10 +7,7 @@ set $mod Mod1
 # exec termite -e xset r rate 200 25
 
 # ----- Autostart ----- #
-# https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/
-# Mapping control and esc to caps
-exec termite -e xcape -e 'Control_L=Escape'
-
+#
 # Wallpaper
 exec --no-startup-id nitrogen --restore
 
