@@ -8,7 +8,8 @@ Collection of personal configfiles (dotfiles) for various programs
 * vim
 * tmux
 * ttf-inconsolata
-* Valgrind
+* Vagrant
+* virtualbox (for vagrant)
 
 For the caps->esc & ctrl on hold:
 https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/
