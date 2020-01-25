@@ -3,6 +3,9 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
+# Keyboard delay rate increase
+# exec termite -e xset r rate 200 25
+
 # ----- Autostart ----- #
 # https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/
 # Mapping control and esc to caps

@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Change keyboard delay rate
+xset r rate 200 25
+
 # Vi mode 
 bindkey -v
 export KEYTIMEOUT=1
