@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 	zsh-autosuggestions
-	zsh-syntax-highlighting
+    zsh-syntax-highlighting
         zsh-vim-mode)
 
 source $ZSH/oh-my-zsh.sh
@@ -111,6 +111,3 @@ alias hibernate="systemctl hibernate"
 alias disp="xrandr --output eDP1 --off --output DP1 --auto"
 alias dispoff="xrandr --output eDP1 --auto --output DP1 --off"
 alias vf='vim $(fzf)'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

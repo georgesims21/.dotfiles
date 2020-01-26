@@ -9,7 +9,10 @@ set $mod Mod1
 # ----- Autostart ----- #
 #
 # Wallpaper
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
+
+# autohide mouse cursor
+exec --no-startup-id unclutter -idle 1 -jitter 2
 
 # Autostart VPN
 #systemctl start expressvpn.service

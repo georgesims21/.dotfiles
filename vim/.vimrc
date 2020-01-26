@@ -73,6 +73,9 @@ set tabstop=4
 set autoindent
 set smartindent
 
+" Show vertical bar at 80 column width
+set colorcolumn=80
+
 " -------------------------
 " PLUGIN MODS
 " -------------------------
@@ -146,10 +149,14 @@ nnoremap <C-M> :bn<CR>
 " To move to previous buffer
 nnoremap <C-N> :bp<CR>
 
+" To quit current buffer
+nnoremap <C-D> :bd<CR>
+
 " Move around split screens
 nnoremap <C-H> <c-w>h
 nnoremap <C-L> <c-w>l
 nnoremap <C-K> <c-w>k
 nnoremap <C-J> <c-w>j
 
+" Toggle NERDTREE
 nnoremap <leader>n :NERDTreeToggle<CR>
