@@ -42,10 +42,11 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec i3-msg exit
 
-# Switching displays
-bindsym $mod+Shift+d exec i3-nagbar -t warning -m 'See Laptop or External?' -b 'Laptop' 'xrandr --output eDP1 --auto --output DP1 --off' -b 'External' 'xrandr --output eDP1 --off --output DP1 --auto' 'i3-msg exit'
+# Switching displays (doesn't work correctly when calling without termite, annoying..)
+bindsym $mod+Shift+d exec --no-startup-id termite -e $HOME/scripts/switch_display.sh
+
 # Lock screen
 # bindsym $mod+Shift+l exec --no-startup-id blurlock
 
@@ -56,9 +57,7 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+w exec firefox
 bindsym $mod+r exec termite -e ranger
 bindsym $mod+e exec tmux
-bindsym $mod+u exec atom
 bindsym $mod+o exec okular
-bindsym $mod+i exec termite -e "vim index.wiki"
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
