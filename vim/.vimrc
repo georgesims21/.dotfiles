@@ -1,4 +1,5 @@
 let mapleader = ","
+set t_Co=256
 
 "  -------------------------
 " PLUGINS
@@ -17,21 +18,25 @@ call vundle#begin()
 
 " Let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'sainnhe/gruvbox-material'
+Plugin 'rakr/vim-one'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sainnhe/gruvbox-material'
-Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vimwiki/vimwiki'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'rhysd/vim-llvm'
 Plugin 'vim-syntastic/syntastic' 
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Townk/vim-autoclose' 
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on 
@@ -76,6 +81,9 @@ set smartindent
 " Show vertical bar at 80 column width
 set colorcolumn=80
 
+" Bracket/parantheses matching
+" set highlight MatchParen ctermbg=blue huibg=lightblue
+
 " -------------------------
 " PLUGIN MODS
 " -------------------------
@@ -94,6 +102,38 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
+
+" --- gruvbox-material theme ---
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_improved_strings=1
+let g:gruvbox_number_column='orange'
+
+" --- ultisnips --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
+" use <Tab> trigger autocompletion
+let g:UltiSnipsExpandTrigger="<tab>"  
+let g:UltiSnipsJumpForwardTrigger="<C-J>"
+let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+
+" --- vim-markdown --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
+" disable header folding
+let g:vim_markdown_folding_disabled = 1
+
+" do not use conceal feature, the implementation is not so good
+let g:vim_markdown_conceal = 0
+
+" disable math tex conceal feature
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
+" support front matter of various format
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
+
+" --- vim-wiki --- 
+"let g:vimwiki_list = [{'path': '$HOME/github/README.md',
+                      "\ 'syntax': 'markdown', 'ext': '.md'}]
 
 " -------------------------
 " CURSOR CONTROL
@@ -138,17 +178,14 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 
 " Allows to edit .vimrc from any other document using ,ev (,EditVim)
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-
+nnoremap <C-V> :e $HOME/.vimrc<cr>
 " Refresh freshly edited .vimrc without exiting (must still :w) ,rv (,RefreshVim)
-nnoremap <leader>rv :source $MYVIMRC<cr>
+nnoremap <C-R> :source $HOME/.vimrc<cr>
 
 " To move to next buffer
 nnoremap <C-M> :bn<CR>
-
 " To move to previous buffer
 nnoremap <C-N> :bp<CR>
-
 " To quit current buffer
 nnoremap <C-D> :bd<CR>
 
@@ -159,4 +196,7 @@ nnoremap <C-K> <c-w>k
 nnoremap <C-J> <c-w>j
 
 " Toggle NERDTREE
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <C-T> :NERDTreeToggle<CR>
+
+" Folding toggle
+nnoremap <C-U> za

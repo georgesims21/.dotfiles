@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/scripts:$PATH
 
+# To load the 256 colour gruvbox palette
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
 # Change keyboard delay rate
 xset r rate 200 25
 
@@ -82,9 +85,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -96,18 +99,19 @@ fi
 # For a full list of active aliases, run `alias`.
 
 # Aliases
-alias v="vim"
+alias vim="nvim"
 alias p="sudo pacman"
 alias pi="sudo pacman -S"
 alias pu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias vi3="vim ~/.config/i3/config"
-alias vzrc="vim ~/.zshrc"
-alias vrc="vim ~/.vimrc"
-alias dotfiles="cd ~/github/.dotfiles"
+alias vi3="nvim $HOME/.config/i3/config"
+alias vzrc="nvim $HOME/.zshrc"
+alias vrc="nvim $HOME/.vimrc"
+alias dotfiles="cd $HOME/github/.dotfiles"
 alias hibernate="systemctl hibernate"
-alias disp="xrandr --output eDP1 --off --output DP1 --auto"
-alias dispoff="xrandr --output eDP1 --auto --output DP1 --off"
-alias vf='vim $(fzf)'
+alias vf='nvim $(fzf)'
+alias wiki='cd $HOME/github/wiki'
+alias vwiki='cd $HOME/github/wiki/; nvim README.md'
+alias dotfiles='$HOME/github/.dotfiles'
