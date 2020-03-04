@@ -10,6 +10,7 @@ set $mod Mod1
 # autohide mouse cursor
 exec --no-startup-id unclutter -idle 1 -jitter 2
 
+
 # Autostart VPN
 #systemctl start expressvpn.service
 #exec expressvpn connect
@@ -46,20 +47,28 @@ bindsym $mod+Shift+e exec i3-msg exit
 # Switching displays (doesn't work correctly when calling without termite, annoying..)
 bindsym $mod+Shift+d exec --no-startup-id termite -e $HOME/scripts/switch_display.sh
 
+# Whenever big screen gets messed up refresh display settings (not working)
+#bindsym $mod+Shift+a exec --no-startup-id termite -e $HOME/scripts/refresh_display.sh
+
 # Lock screen
 bindsym $mod+Shift+x exec blurlock
 
+# Sleep/suspend
+bindsym $mod+Shift+z exec systemctl suspend
+
 # ----- Main program shortcuts ----- #
 
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec --no-startup-id termite
 bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+w exec firefox
-bindsym $mod+r exec termite -e ranger
-bindsym $mod+e exec tmux
-bindsym $mod+o exec okular
-bindsym $mod+u exec whatsapp-nativefier-dark
-bindsym $mod+y exec telegram-desktop
+bindsym $mod+w exec --no-startup-id firefox
+bindsym $mod+r exec --no-startup-id termite -e ranger
+bindsym $mod+o exec --no-startup-id okular
+bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
+bindsym $mod+y exec --no-startup-id telegram-desktop
 bindsym $mod+p exec --no-startup-id deepin-screenshot
+bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+b exec --no-startup-id blueberry
+
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -70,6 +79,13 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec --no-startup-id start_conky_maia
+#
+# For battery status icon
+exec --no-startup-id cbatticon
+
+# For bluetooth icon
+exec --no-startup-id blueberry
+
 
 # Uninstalled xautolock
 # exec --no-startup-id xautolock -time 10 -locker blurlock
@@ -83,16 +99,20 @@ exec_always --no-startup-id fix_xcursor
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1 
-set $ws2 2 
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
-set $ws9 8
+set $ws1 TRM
+set $ws2 EMC
+set $ws3 FRE
+set $ws4 UNI
+set $ws5 1
+set $ws6 2
+set $ws7 3
+set $ws8 4
+set $ws9 5
 set $ws0 MSG
+
+exec --no-startup-id i3-msg 'workspace $ws3; exec firefox'
+exec --no-startup-id i3-msg 'workspace $ws2; exec emacs'
+exec --no-startup-id i3-msg 'workspace $ws1; exec termite'
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -105,6 +125,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws0
+
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -244,7 +265,6 @@ mode "$mode_gaps_outer" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-    mode hide
     hidden_state hide
 	font pango:Inconsolata, FontAwesome 12
 	strip_workspace_numbers yes

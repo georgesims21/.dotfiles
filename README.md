@@ -1,21 +1,10 @@
 # .dotfiles
 Collection of personal configfiles (dotfiles) for various programs
 
-* Termite
-* Insync
-* zsh
-* ranger
-* vim
-* tmux
-* ttf-inconsolata
-* Vagrant
-* virtualbox (for vagrant)
-* dunst (notifications)
-
 For the caps->esc & ctrl on hold:
 use the interception delay.git one, and don't forget to do: sudo systemctl start udevmon.service as well!
 
-To enable dunst notifications:
+To enable dunst notifications: https://www.addictivetips.com/ubuntu-linux-tips/set-up-better-system-notifications-on-linux-with-dunst/
 ```
     systemctl enable --user dunst.service
     systemctl start --user dunst.service

@@ -111,8 +111,8 @@ let g:gruvbox_number_column='orange'
 " --- ultisnips --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
 " use <Tab> trigger autocompletion
 let g:UltiSnipsExpandTrigger="<tab>"  
-let g:UltiSnipsJumpForwardTrigger="<C-J>"
-let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 
 " --- vim-markdown --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
 " disable header folding
@@ -178,25 +178,25 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 
 " Allows to edit .vimrc from any other document using ,ev (,EditVim)
-nnoremap <C-V> :e $HOME/.vimrc<cr>
+nnoremap <Leader>v :e $HOME/.vimrc<cr>
 " Refresh freshly edited .vimrc without exiting (must still :w) ,rv (,RefreshVim)
-nnoremap <C-R> :source $HOME/.vimrc<cr>
+nnoremap <Leader>r :source $HOME/.vimrc<cr>
 
 " To move to next buffer
-nnoremap <C-M> :bn<CR>
+nnoremap <Leader>m :bn<CR>
 " To move to previous buffer
-nnoremap <C-N> :bp<CR>
+nnoremap <Leader>n :bp<CR>
 " To quit current buffer
-nnoremap <C-D> :bd<CR>
+nnoremap <Leader>d :bd<CR>
 
 " Move around split screens
-nnoremap <C-H> <c-w>h
-nnoremap <C-L> <c-w>l
-nnoremap <C-K> <c-w>k
-nnoremap <C-J> <c-w>j
+nnoremap <Leader>h <c-w>h
+nnoremap <Leader>l <c-w>l
+nnoremap <Leader>k <c-w>k
+nnoremap <Leader>j <c-w>j
 
 " Toggle NERDTREE
-nnoremap <C-T> :NERDTreeToggle<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
 
 " Folding toggle
-nnoremap <C-U> za
+nnoremap <Leader>k za

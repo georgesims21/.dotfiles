@@ -101,8 +101,8 @@ fi
 # Aliases
 alias vim="nvim"
 alias p="sudo pacman"
+alias pu="sudo pacman-mirrors --country Germany,France,Netherlands,United_Kingdom && sudo pacman -Syyu"
 alias pi="sudo pacman -S"
-alias pu="sudo pacman -Syu"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
