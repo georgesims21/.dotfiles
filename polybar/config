@@ -1,0 +1,91 @@
+[bar/bar]
+background = #D93d3c3b
+foreground = #b6a49b
+width                    = 24%
+height                   = 70
+radius                   = 15
+line-size                = 0
+bottom                   = true
+border-bottom-size       = 0
+padding-left             = 0
+padding-right            = 0
+#module-margin-left       = 1
+#module-margin-right      = 1
+
+fixed-center = true
+font-0 = San Francisco Display Regular:size=24;1
+font-1 = unifont:fontformat=truetype:size=24:antialias=false;0
+font-2 = "MaterialIcons:size=24:antialias=false;1"
+font-3 = "icomoon-extended-ultra:size=24:antialias=false;1"
+font-4 = "Ubuntu Nerd Font:size=24:antialias=false;1"
+font-5 = FontAwesome:size=24;1
+
+modules-left = 
+modules-center =
+modules-right = date volume eth poweroff 
+module-margin = 2
+
+;left - center - right - none
+tray-position = none
+tray-maxsize = 24
+tray-detached = false
+tray-transparent = false
+tray-padding = 2
+tray-scale = 1.0
+
+
+override-redirect = true
+offset-x = 2900
+offset-y = 20
+
+padding = 0
+
+wm-name = bar
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[module/date]
+type = internal/date
+interval = 60
+date = %a %d %b
+time = %l:%M %p
+label =    %date%      %time%
+;label =  %time%
+format-padding = 1
+
+[module/volume]
+type = internal/volume
+format-volume =   <ramp-volume>  <label-volume>
+format-muted = 0%  
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/poweroff]
+type = custom/script
+exec = echo "  "
+click-left = rofi -modi run,drun,window -show drun
+click-right = i3lock-fancy -pg &
+click-middle = /usr/bin/rofi-logout
+format-padding = 1
+
+[module/rofi]
+type = custom/script
+exec = echo "  "
+click-left = rofi -modi run,drun,window -show drun
+format-padding = 1
+
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-prefix = "  "
+format-connected-prefix-foreground = #b6a49b
+label-connected = %downspeed:9%
+format-disconnected = <label-disconnected>
+label-disconnected = not connected
+label-disconnected-foreground = #66ffffff
+format-padding = 1
