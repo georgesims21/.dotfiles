@@ -1,0 +1,1 @@
+/home/george/github/.dotfiles/emacs/.doom.d/config.el
