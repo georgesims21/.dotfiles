@@ -10,6 +10,8 @@ set $mod Mod1
 # autohide mouse cursor
 exec --no-startup-id unclutter -idle 1 -jitter 2
 
+# Run Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autostart VPN
 #systemctl start expressvpn.service
@@ -264,23 +266,23 @@ mode "$mode_gaps_outer" {
 # ----- i3-bar ----- #
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-    hidden_state hide
-	font pango:Inconsolata, FontAwesome 12
-	strip_workspace_numbers yes
-	position top
-    status_command i3blocks
+#bar {
+    #hidden_state hide
+	#font pango:Inconsolata, FontAwesome 12
+	#strip_workspace_numbers yes
+	#position top
+    #status_command i3blocks
 
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
-}
+    #colors {
+        #separator #666666
+        #background #222222
+        #statusline #dddddd
+        #focused_workspace #0088CC #0088CC #ffffff
+        #active_workspace #333333 #333333 #ffffff
+        #inactive_workspace #333333 #333333 #888888
+        #urgent_workspace #2f343a #900000 #ffffff
+    #}
+#}
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
