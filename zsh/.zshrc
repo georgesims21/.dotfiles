@@ -1,21 +1,25 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/scripts:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# To load the 256 colour gruvbox palette
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+# Path to your oh-my-zsh installation.
+export ZSH="/home/george/.oh-my-zsh"
 
-# Change keyboard delay rate
-xset r rate 200 25
-
-# Vi mode 
+# Vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="spaceship"
+SPACESHIP_VI_MODE_SHOW=false
 
-# Theme
-ZSH_THEME="geometry/geometry"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -31,7 +35,7 @@ ZSH_THEME="geometry/geometry"
 DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# export UPDATE_ZSH_DAYS= 7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -69,10 +73,18 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-	zsh-autosuggestions
+plugins=(
+    git
+    archlinux
+    cp
+    github
+    vagrant
+    vagrant-prompt
+    vi-mode
+    vim-interaction
+	  zsh-autosuggestions
     zsh-syntax-highlighting
-        zsh-vim-mode)
+    )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,11 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -98,21 +110,23 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Aliases
-alias vim="nvim"
+alias vim="vim"
 alias p="sudo pacman"
-alias pu="sudo pacman-mirrors --country Germany,France,Netherlands,United_Kingdom && sudo pacman -Syyu"
+#alias pu="sudo pacman-mirrors --country Germany,France,Netherlands,United_Kingdom && sudo pacman -Syyu"
 alias pi="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias pr="sudo pacman -Rsn"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias vi3="nvim $HOME/.config/i3/config"
-alias vzrc="nvim $HOME/.zshrc"
-alias vrc="nvim $HOME/.vimrc"
+alias vi3="vim $HOME/.config/sway/config"
+alias vzrc="vim $HOME/.zshrc"
+alias vrc="vim $HOME/.vimrc"
 alias dotfiles="cd $HOME/github/.dotfiles"
 alias hibernate="systemctl hibernate"
-alias vf='nvim $(fzf)'
+alias vf='vim $(fzf)'
 alias wiki='cd $HOME/github/wiki'
 alias vwiki='cd $HOME/github/wiki/; nvim README.md'
-alias dotfiles='$HOME/github/.dotfiles'
-alias github='$HOME/github'
+alias dots='cd $HOME/github/.dotfiles'
+alias github='cd $HOME/github'
+alias drefresh='./.emacs.d/bin/doom refresh'

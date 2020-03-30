@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Inconsolata" :size 20))
+(setq doom-font (font-spec :family "firacode" :size 20))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -28,17 +28,28 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(after! org)
+  (map! :map org-mode-map
+      :n "C-j" #'org-metadown
+      :n "C-k" #'org-metaup
+      :n "C-h" #'org-metaleft
+      :n "C-l" #'org-metaright)
+  (setq org-directory "~/org/"
+      org-bullets-bullet-list '(""))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
 ;; Auto-hide markup on .md/.markdown docs (no *italic* __bold__ etc)
-(use-package markdown-mode
-  :init
-  (setq-default markdown-hide-markup t))
+;;(use-package markdown-mode
+  ;;:init
+  ;;(setq-default markdown-hide-markup t))
 
+;;(use-package! org-fancy-priorities
+  ;;:hook (org-mode . org-fancy-priorities-mode)
+  ;;:config
+  ;;(setq org-fancy-priorities-list '("" "" "")))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
