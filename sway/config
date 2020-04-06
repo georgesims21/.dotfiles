@@ -99,6 +99,7 @@ input type:keyboard {
     bindsym $mod+e exec emacs
     bindsym $mod+u exec whatsapp-nativefier-dark
     bindsym $mod+z exec zathura
+    bindsym $mod+c exec clion
     bindsym $mod+p exec grim -g "$(slurp)"
 
     bindsym $mod+x exec swaylock -i $lock_background

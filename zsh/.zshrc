@@ -126,6 +126,7 @@ alias dotfiles="cd $HOME/github/.dotfiles"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
 alias wiki='cd $HOME/github/wiki'
+alias proj='cd $HOME/github/wiki/University/Bachelor_Project'
 alias vwiki='cd $HOME/github/wiki/; nvim README.md'
 alias dots='cd $HOME/github/.dotfiles'
 alias github='cd $HOME/github'
