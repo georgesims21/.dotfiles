@@ -1,24 +1,29 @@
 #!/usr/bin/env bash
+# find . -name "foo*"
 #
+# TODO:
+# * Loop through all torrents in $torrents
+# * Individually check if it exists in the $mountpt using the find command
+# * If yes - remove (if seeded)
+# * If no - copy across then remove
+# * (if seeded) Is there any way to check if a torrent is complete? - .txt file containing completed ones - transmission writes to this 'on completion', check this file before deleting?
 
-hdd="/dev/sda1"
-#test="/dev/nvme0n1p4/"
-test="hello"
 mountpt="/mnt/hdd/Video"
-torrents="$HOME/torrents/finished/"
-
-stat=$(stat $torrents >/dev/null 2>&1)
-#status=$?
+torrents="$HOME/torrents/finished"
+stat=$(stat $mountpt >/dev/null 2>&1)
 
 if [[ $? -eq 0 ]]; then
-  echo "stat is true"
+  stat=$(stat $torrents >/dev/null 2>&1)
+  if [[ $? -eq 0 ]]; then
+    for filename in $torrents/*; do
+      tmp="${filename##*/}"
+      if [[ $(find $mountpt $tmp) ]]; then
+        echo "yes"
+      else
+        echo "no"
+      fi
+    done
+  fi
 else
    echo "stat is false"
 fi
-
-#if [ $stat != 0 ] && [ -d "$torrents" ]; then
-  # It's a directory!
-  #echo "Both dirs"
-#else
-  #echo "Not both dirs"
-#fi
