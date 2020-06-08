@@ -52,7 +52,7 @@ set hidden
 set autowriteall
 
 " Theme used, -soft, -hard or none is available
-"colorscheme gruvbox-material
+colorscheme gruvbox-material
 
 " Line numbers + numbers relative to the current line
 set number relativenumber

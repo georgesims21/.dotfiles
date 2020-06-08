@@ -8,6 +8,8 @@ export ZSH="/home/george/.oh-my-zsh"
 bindkey -v
 export KEYTIMEOUT=1
 
+wmname LG3D
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -131,3 +133,4 @@ alias vwiki='cd $HOME/github/wiki/; nvim README.md'
 alias dots='cd $HOME/github/.dotfiles'
 alias github='cd $HOME/github'
 alias drefresh='./.emacs.d/bin/doom refresh'
+

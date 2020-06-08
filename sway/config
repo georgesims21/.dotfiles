@@ -94,6 +94,7 @@ input type:keyboard {
     bindsym $mod+Shift+r reload
 
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec termite -e "systemctl suspend"
 
     bindsym $mod+w exec firefox
     bindsym $mod+e exec emacs
@@ -101,6 +102,7 @@ input type:keyboard {
     bindsym $mod+z exec zathura
     bindsym $mod+c exec clion
     bindsym $mod+p exec grim -g "$(slurp)"
+    bindsym $mod+o exec okular
 
     bindsym $mod+x exec swaylock -i $lock_background
 #
@@ -249,23 +251,9 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 
-set $date while date +'%Y-%m-%d %l:%M %p'; do sleep 60; done;
 bar {
-    position top
-    font Inconsolata
-    separator_symbol '|'
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command $date 
-    mode hide
-    modifier Mod4
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # ~/.config/waybar/<config> or <style.css>
+    swaybar_command waybar
 }
 
 # github.com/swaywm/sway/wiki/Systemd-integration#running-sway-itself-as-a--user-service
