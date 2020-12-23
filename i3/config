@@ -8,17 +8,17 @@ set $mod Mod1
 #exec --no-startup-id nitrogen --restore
 
 # autohide mouse cursor
-exec --no-startup-id unclutter -idle 1 -jitter 2
+#exec --no-startup-id unclutter -idle 1 -jitter 2
 
 # Run Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Autostart VPN
 #systemctl start expressvpn.service
 #exec expressvpn connect
 
 # Autostart Google Drive sync
-exec insync start
+#exec insync start
 
 # ----- Basics ----- #
 
@@ -29,10 +29,10 @@ bindsym $mod+q kill
 bindsym $mod+m bar mode toggle
 #
 # take a screenshot of a screen region and copy it to a clipboard
-bindsym --release $mod+p exec "screenshot.sh -s $HOME/Pictures/screenshots/"
+#bindsym --release $mod+p exec "screenshot.sh -s $HOME/Pictures/screenshots/"
 
 # take a screenshot of a whole window and copy it to a clipboard
-bindsym --release $mod+Shift+P exec "screenshot.sh $HOME/Pictures/screenshots/"
+#bindsym --release $mod+Shift+P exec "screenshot.sh $HOME/Pictures/screenshots/"
 
 # Focus window on mouse movement
 focus_follows_mouse no
@@ -47,7 +47,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec i3-msg exit
 
 # Switching displays (doesn't work correctly when calling without termite, annoying..)
-bindsym $mod+Shift+d exec --no-startup-id termite -e $HOME/scripts/switch_display.sh
+#bindsym $mod+Shift+d exec --no-startup-id termite -e $HOME/scripts/switch_display.sh
 
 # Whenever big screen gets messed up refresh display settings (not working)
 #bindsym $mod+Shift+a exec --no-startup-id termite -e $HOME/scripts/refresh_display.sh
@@ -60,16 +60,16 @@ bindsym $mod+Shift+z exec systemctl suspend
 
 # ----- Main program shortcuts ----- #
 
-bindsym $mod+Return exec --no-startup-id termite
+#bindsym $mod+Return exec --no-startup-id termite
 bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+w exec --no-startup-id firefox
 bindsym $mod+r exec --no-startup-id termite -e ranger
-bindsym $mod+o exec --no-startup-id okular
-bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
-bindsym $mod+y exec --no-startup-id telegram-desktop
-bindsym $mod+p exec --no-startup-id deepin-screenshot
-bindsym $mod+e exec --no-startup-id emacs
-bindsym $mod+b exec --no-startup-id blueberry
+#bindsym $mod+o exec --no-startup-id okular
+#bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
+#bindsym $mod+y exec --no-startup-id telegram-desktop
+#bindsym $mod+p exec --no-startup-id deepin-screenshot
+#bindsym $mod+e exec --no-startup-id emacs
+#bindsym $mod+b exec --no-startup-id blueberry
 
 
 # Autostart applications
@@ -83,10 +83,10 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id start_conky_maia
 #
 # For battery status icon
-exec --no-startup-id cbatticon
+#exec --no-startup-id cbatticon
 
 # For bluetooth icon
-exec --no-startup-id blueberry
+#exec --no-startup-id blueberry
 
 
 # Uninstalled xautolock
@@ -266,25 +266,25 @@ mode "$mode_gaps_outer" {
 # ----- i3-bar ----- #
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
+bar {
     #hidden_state hide
-	#font pango:Inconsolata, FontAwesome 12
-	#strip_workspace_numbers yes
-	#position top
+	font pango:Inconsolata, FontAwesome 12
+	strip_workspace_numbers yes
+	position top
     #status_command i3blocks
 
-    #colors {
-        #separator #666666
-        #background #222222
-        #statusline #dddddd
-        #focused_workspace #0088CC #0088CC #ffffff
-        #active_workspace #333333 #333333 #ffffff
-        #inactive_workspace #333333 #333333 #888888
-        #urgent_workspace #2f343a #900000 #ffffff
-    #}
-#}
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
+}
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
+	tray_output primary
 #	tray_output eDP1
 
 	#bindsym button4 nop
@@ -405,7 +405,7 @@ exec termite -e xset r rate 250 30
 #######################
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
+assign [class="Firefox"] $ws3
 
 # Open specific applications in floating mode
 # for_window [title="alsamixer"] floating enable border pixel 1

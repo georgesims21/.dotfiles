@@ -1,5 +1,6 @@
+set -o vi
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/scripts
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/github/.dotfiles/scripts:$HOME/.emacs.d/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/george/.oh-my-zsh"
@@ -8,13 +9,13 @@ export ZSH="/home/george/.oh-my-zsh"
 bindkey -v
 export KEYTIMEOUT=1
 
-wmname LG3D
+#wmname LG3D <- this was a clion fix in wayland (sway wm)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="risto"
 SPACESHIP_VI_MODE_SHOW=false
 
 # Set list of themes to pick from when loading at random
@@ -84,8 +85,8 @@ plugins=(
     vagrant-prompt
     vi-mode
     vim-interaction
-	  zsh-autosuggestions
-    zsh-syntax-highlighting
+    #zsh-autosuggestions
+    #zsh-syntax-highlighting
     )
 
 source $ZSH/oh-my-zsh.sh
