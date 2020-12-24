@@ -6,3 +6,4 @@ TIME=$(date +"%D %T")
 cd "$DOTS"
 git add *
 git commit -m "Daily commit: $TIME"
+git push
