@@ -134,4 +134,5 @@ alias vwiki='cd $HOME/github/wiki/; nvim README.md'
 alias dots='cd $HOME/github/.dotfiles'
 alias github='cd $HOME/github'
 alias drefresh='./.emacs.d/bin/doom refresh'
+alias dots='$HOME/github/.dotfiles'
 
