@@ -1,24 +1,30 @@
+# ----- Display ----- #
+
+# force external (DP1) to be primary
+exec xrandr --primary --output DP1 --auto
+
+# locate laptop screen to right of external
+exec xrandr --output eDP1 --auto --right-of DP1
+
 # ----- Mod key ----- #
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
 # ----- Autostart ----- #
-#
-# Wallpaper
-#exec --no-startup-id nitrogen --restore
 
 # autohide mouse cursor
-#exec --no-startup-id unclutter -idle 1 -jitter 2
+exec --no-startup-id unclutter -idle 1 -jitter 2
 
-# Run Polybar
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# start insync client
+exec insync start
 
-# Autostart VPN
-#systemctl start expressvpn.service
-#exec expressvpn connect
+# run tmux on first workspace on login,
+# attatch to most recently closed session if exists
+exec alacritty -e tmux a || tmux new
 
-# Autostart Google Drive sync
-#exec insync start
+# connect to VPN
+exec nordvpn connect
 
 # ----- Basics ----- #
 
@@ -27,12 +33,6 @@ bindsym $mod+q kill
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
-#
-# take a screenshot of a screen region and copy it to a clipboard
-#bindsym --release $mod+p exec "screenshot.sh -s $HOME/Pictures/screenshots/"
-
-# take a screenshot of a whole window and copy it to a clipboard
-#bindsym --release $mod+Shift+P exec "screenshot.sh $HOME/Pictures/screenshots/"
 
 # Focus window on mouse movement
 focus_follows_mouse no
@@ -43,32 +43,52 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout tabbed
 
-# Switching displays (doesn't work correctly when calling without termite, annoying..)
-#bindsym $mod+Shift+d exec --no-startup-id termite -e $HOME/scripts/switch_display.sh
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
 
-# Whenever big screen gets messed up refresh display settings (not working)
-#bindsym $mod+Shift+a exec --no-startup-id termite -e $HOME/scripts/refresh_display.sh
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
 
-# Lock screen
-bindsym $mod+Shift+x exec blurlock
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
 
-# Sleep/suspend
-bindsym $mod+Shift+z exec systemctl suspend
+# focus the parent container
+bindsym $mod+a focus parent
+
+# split orientation
+bindsym $mod+t split toggle
+
+# toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+# set font
+font pango:inconsolata 18 
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
 
 # ----- Main program shortcuts ----- #
 
-#bindsym $mod+Return exec --no-startup-id termite
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
 bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+w exec --no-startup-id firefox
-bindsym $mod+r exec --no-startup-id termite -e ranger
-#bindsym $mod+o exec --no-startup-id okular
+bindsym $mod+r exec --no-startup-id alacritty -e ranger
+bindsym $mod+o exec --no-startup-id zathura
+bindsym $mod+e exec --no-startup-id emacs
 #bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
 #bindsym $mod+y exec --no-startup-id telegram-desktop
 #bindsym $mod+p exec --no-startup-id deepin-screenshot
-#bindsym $mod+e exec --no-startup-id emacs
 #bindsym $mod+b exec --no-startup-id blueberry
 
 
@@ -97,24 +117,24 @@ exec_always --no-startup-id fix_xcursor
 
 # ----- Window/container options ----- #
 
-# Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
-set $ws1 TRM
-set $ws2 EMC
-set $ws3 FRE
-set $ws4 UNI
-set $ws5 1
-set $ws6 2
-set $ws7 3
-set $ws8 4
-set $ws9 5
-set $ws0 MSG
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:" 
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 7
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws0 "10:"
 
-exec --no-startup-id i3-msg 'workspace $ws3; exec firefox'
-exec --no-startup-id i3-msg 'workspace $ws2; exec emacs'
-exec --no-startup-id i3-msg 'workspace $ws1; exec termite'
+# ----- Open on specific workspace ----- #
+
+assign [class="jetbrains-clion"] $ws2
+assign [class="firefox"] $ws3
+assign [class="emacs"] $ws4
+assign [class="VirtualBox Manager"] $ws5
+assign [class="VirtualBox Machine"] $ws5
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -127,7 +147,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws0
-
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -171,42 +190,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# toggle sticky
-bindsym $mod+Shift+s sticky toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# split orientation
-bindsym $mod+t split toggle
-
-# toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
-
-# Hide borders
-hide_edge_borders none
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font xft:URWGothic-Book 21
-font pango:inconsolata 18 
-
-
-# switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
 
 #----- i3-gaps ----- #
 
@@ -268,10 +251,11 @@ mode "$mode_gaps_outer" {
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
     #hidden_state hide
-	font pango:Inconsolata, FontAwesome 12
+    	i3bar_command i3bar
+	font pango:Inconsolata, FontAwesome 16
 	strip_workspace_numbers yes
 	position top
-    #status_command i3blocks
+	status_command i3status
 
     colors {
         separator #666666
@@ -284,7 +268,7 @@ bar {
     }
 }
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	tray_output primary
+#	tray_output primary
 #	tray_output eDP1
 
 	#bindsym button4 nop
@@ -354,14 +338,17 @@ set_from_resource $term_color15    color15
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
-
 # Set keyboard repeat rate and delay
 exec termite -e xset r rate 250 30
-
 
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
+
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # ----- Brightness ----- # 
 
@@ -386,28 +373,30 @@ exec termite -e xset r rate 250 30
 
 #######  Set shut down, restart and locking features #######  
 
-# bindsym $mod+0 mode "$mode_system"
-# set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-# mode "$mode_system" {
-    # bindsym l exec --no-startup-id i3exit lock, mode "default"
-    # bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    # bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    # bindsym e exec --no-startup-id i3exit logout, mode "default"
-    # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    # bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    # bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+bindsym $mod+Shift+x mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    # bindsym Return mode "default"
-    # bindsym Escape mode "default"
-# }
+    #exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 #######################
 
 # Open applications on specific workspaces
-assign [class="Firefox"] $ws3
+#assign [class="Firefox"] $ws3
 
 # Open specific applications in floating mode
 # for_window [title="alsamixer"] floating enable border pixel 1
 
 #######################
+
+exec_always feh --bg-scale /home/george/Pictures/trees-landscape-wallpaper.jpg

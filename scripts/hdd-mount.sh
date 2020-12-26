@@ -1,15 +1,17 @@
 #!/bin/bash
 
-rootpt="/dev/sda1"
-mountpt="/mnt/hdd"
-stat=$(stat $mountpt >/dev/null 2>&1)
+echo "Enter path to drive: "
+read rootpt
+echo "Enter mount path: "
+read mountpt
 
+stat=$(stat $mountpt >/dev/null 2>&1)
 if [[ $? -eq 0 ]] && [[ ! -L "$rootpt" ]]; then
   # It's a directory!
   if [[ ! -d "$mountpt" ]]; then
       # Create dir if doesn't exist already
       echo "Creating mount point at: $mountpt"
-      mkdir "$mountpt"
+      sudo mkdir "$mountpt"
       echo "$mountpt created"
   fi
   # Mount for R/W on ntfs

@@ -11,7 +11,7 @@ set nocompatible
 filetype off
 
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/vundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Alternatively, pass a path where Vundleshould intall plugins:
 " call vundle#begin('~/some/path/here')
@@ -52,7 +52,7 @@ set hidden
 set autowriteall
 
 " Theme used, -soft, -hard or none is available
-colorscheme gruvbox-material
+" colorscheme gruvbox-hard
 
 " Line numbers + numbers relative to the current line
 set number relativenumber
