@@ -21,10 +21,22 @@ exec insync start
 
 # run tmux on first workspace on login,
 # attatch to most recently closed session if exists
-exec alacritty -e tmux a || tmux new
+exec alacritty -e "tmux a || tmux new"
 
 # connect to VPN
 exec nordvpn connect
+
+# start bluetooth client
+exec --no-startup-id blueberry
+
+# For battery status icon
+exec --no-startup-id cbatticon
+
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
 
 # ----- Basics ----- #
 
@@ -89,31 +101,7 @@ bindsym $mod+e exec --no-startup-id emacs
 #bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
 #bindsym $mod+y exec --no-startup-id telegram-desktop
 #bindsym $mod+p exec --no-startup-id deepin-screenshot
-#bindsym $mod+b exec --no-startup-id blueberry
 
-
-# Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id pamac-tray
-# exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec --no-startup-id start_conky_maia
-#
-# For battery status icon
-#exec --no-startup-id cbatticon
-
-# For bluetooth icon
-#exec --no-startup-id blueberry
-
-
-# Uninstalled xautolock
-# exec --no-startup-id xautolock -time 10 -locker blurlock
-
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 
 # ----- Window/container options ----- #
 
@@ -251,7 +239,7 @@ mode "$mode_gaps_outer" {
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
     #hidden_state hide
-    	i3bar_command i3bar
+    i3bar_command i3bar
 	font pango:Inconsolata, FontAwesome 16
 	strip_workspace_numbers yes
 	position top

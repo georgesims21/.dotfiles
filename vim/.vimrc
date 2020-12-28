@@ -79,7 +79,7 @@ set autoindent
 set smartindent
 
 " Show vertical bar at 80 column width
-set colorcolumn=80
+" set colorcolumn=80
 
 " Bracket/parantheses matching
 " set highlight MatchParen ctermbg=blue huibg=lightblue
