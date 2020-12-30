@@ -85,6 +85,7 @@ plugins=(
     vagrant-prompt
     vi-mode
     vim-interaction
+    json
     #zsh-autosuggestions
     #zsh-syntax-highlighting
     )
@@ -125,14 +126,12 @@ alias ....="cd ../../.."
 alias vi3="vim $HOME/.i3/config"
 alias vzrc="vim $HOME/.zshrc"
 alias vrc="vim $HOME/.vimrc"
-alias dotfiles="cd $HOME/github/.dotfiles"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
 alias wiki='cd $HOME/github/wiki'
 alias proj='cd $HOME/github/wiki/University/Bachelor_Project'
 alias vwiki='cd $HOME/github/wiki/; nvim README.md'
-alias dots='cd $HOME/github/.dotfiles'
 alias github='cd $HOME/github'
 alias drefresh='./.emacs.d/bin/doom refresh'
 alias dots='$HOME/github/.dotfiles'
-
+alias uniserver='ssh gss680@ssh.data.vu.nl'
