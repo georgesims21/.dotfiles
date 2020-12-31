@@ -98,6 +98,7 @@ bindsym $mod+w exec --no-startup-id firefox
 bindsym $mod+r exec --no-startup-id alacritty -e ranger
 bindsym $mod+o exec --no-startup-id zathura
 bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+c exec --no-startup-id clion
 #bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
 #bindsym $mod+y exec --no-startup-id telegram-desktop
 #bindsym $mod+p exec --no-startup-id deepin-screenshot

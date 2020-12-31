@@ -85,7 +85,6 @@ plugins=(
     vagrant-prompt
     vi-mode
     vim-interaction
-    json
     #zsh-autosuggestions
     #zsh-syntax-highlighting
     )
