@@ -102,6 +102,10 @@ bindsym $mod+c exec --no-startup-id clion
 #bindsym $mod+u exec --no-startup-id whatsapp-nativefier-dark
 #bindsym $mod+y exec --no-startup-id telegram-desktop
 #bindsym $mod+p exec --no-startup-id deepin-screenshot
+## Multi-screen screenshots with scrot
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+## OSX-like area selection screenshots
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
 
 # ----- Window/container options ----- #
