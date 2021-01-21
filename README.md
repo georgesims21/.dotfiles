@@ -12,7 +12,8 @@ If the service is "dead", try reinstalling and restarting the service. If the se
 ```
 journalctl -u udevmon
 ```
-Most recently the error was the configuration file, it was searched for (by udevmon) in a different directory, so I copied it there and restarted the service and it worked.
+Most recently the error was the configuration file, it was searched for (by udevmon) in a different directory, so I copied it there and restarted the service and it worked.   
+
 To enable dunst notifications: https://www.addictivetips.com/ubuntu-linux-tips/set-up-better-system-notifications-on-linux-with-dunst/
 ```
     systemctl enable --user dunst.service
