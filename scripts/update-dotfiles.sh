@@ -6,6 +6,7 @@ echo "Starting script" >> "$LOG"
 DOTS="$HOME"/github/.dotfiles
 TIME=$(date +"%D %T")
 
+git pull
 cd "$DOTS"
 git add *
 echo "Added everything" >> "$LOG"
