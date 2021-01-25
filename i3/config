@@ -1,10 +1,9 @@
 # ----- Display ----- #
 
-# force external (DP1) to be primary
-exec xrandr --primary --output DP1 --auto
+# Update screen settings on refresh
+exec --no-startup-id switch_display.sh
 
-# locate laptop screen to right of external
-exec xrandr --output eDP1 --auto --right-of DP1
+#exec_always --no-startup-id ~/.config/polybar/polybar.sh &
 
 # ----- Mod key ----- #
 
@@ -121,6 +120,16 @@ set $ws8 "8:"
 set $ws9 "9:"
 set $ws0 "10:"
 
+#set $ws1 1
+#set $ws2 2
+#set $ws3 3 
+#set $ws4 4
+#set $ws5 5
+#set $ws6 6
+#set $ws7 7
+#set $ws8 8
+#set $ws9 9
+#set $ws0 10
 # ----- Open on specific workspace ----- #
 
 assign [class="jetbrains-clion"] $ws2
@@ -243,7 +252,7 @@ mode "$mode_gaps_outer" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-    #hidden_state hide
+    hidden_state hide
     i3bar_command i3bar
 	font pango:Inconsolata, FontAwesome 16
 	strip_workspace_numbers yes
@@ -260,7 +269,7 @@ bar {
         urgent_workspace #2f343a #900000 #ffffff
     }
 }
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
 
