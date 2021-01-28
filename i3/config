@@ -55,7 +55,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout tabbed
+bindsym $mod+s layout toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
