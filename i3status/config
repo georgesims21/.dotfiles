@@ -8,14 +8,15 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
         color_good = "#2AA198"
         color_bad = "#586E75"
         color_degraded = "#DC322F"
 }
 
-order += "wireless wlp58s0"
+order += "wireless _first_"
 order += "cpu_usage"
+order += "cpu_temperature 0"
 order += "memory"
 order += "disk /"
 order += "battery all"
@@ -29,6 +30,9 @@ cpu_usage {
         format = "  %usage "
 }
 
+cpu_temperature 0{
+    format = "  %degrees°C "
+}
 
 load {
         format = " load %1min "
@@ -37,12 +41,11 @@ load {
 
 disk "/" {
         # format = " hdd %avail "
-        format = "  %avail (%percentage_used)"
+        format = "  %avail (%percentage_used) "
 }
 
-wireless wlp58s0 { 
+wireless _first_ { 
     format_up = "  %bitrate @ %essid [%ip] "
-    format_down = ""
 }
 
 #ethernet _first_ {
@@ -53,8 +56,8 @@ wireless wlp58s0 {
 
 battery all {
         # format = "%status %percentage %remaining %emptytime"
-        format = " %status %percentage"
-        format_down = "No battery"
+        format = " %status %percentage "
+        format_down = " No battery "
         last_full_capacity = true
         integer_battery_capacity = true
         # status_chr = ""
@@ -78,5 +81,5 @@ memory {
 
 tztime local {
         # format = "%Y-%m-%d %H:%M:%S"
-        format = " %d.%m %H:%M "
+        format = " %d.%m ~ %H:%M "
 }
