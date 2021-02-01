@@ -2,9 +2,10 @@
 
 DOTS="$HOME"/github/.dotfiles
 TIME=$(date +"%D %T")
+LOG="$HOME"/log.txt
 
-git pull
 cd "$DOTS"
-git add *
-git commit -m "Daily commit: $TIME"
-git push
+echo $(git pull) >> "$LOG"
+echo $(git add *) >> "$LOG"
+echo $(git commit -m "Daily commit: $TIME") >> "$LOG"
+echo $(git push) >> "$LOG"

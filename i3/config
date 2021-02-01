@@ -16,20 +16,20 @@ set $mod Mod1
 exec --no-startup-id unclutter -idle 1 -jitter 2
 
 # start insync client
-exec insync start
+exec --no-startup-id insync start
 
 # run tmux on first workspace on login,
 # attatch to most recently closed session if exists
-exec alacritty -e "tmux a || tmux new"
+exec --no-startup-id alacritty -e "tmux a || tmux new"
 
 # connect to VPN
-exec nordvpn connect
+exec --no-startup-id nordvpn connect
 
 # start bluetooth client
 exec --no-startup-id blueberry
 
 # For battery status icon
-exec --no-startup-id cbatticon
+#exec --no-startup-id cbatticon
 
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor

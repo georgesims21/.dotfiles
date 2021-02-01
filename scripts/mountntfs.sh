@@ -2,7 +2,7 @@
 # Program which mounts a user defined drive to a user defined mount point. Mount using ntfs-3g which allows for R/W operations on ntfs formatted drives.
 
 read -p 'Path to disk: ' rootpt
-echo "$rootpt"
+read -p 'Mount point (will create if it non-existent): ' mountpt
 
 if [ "$rootpt" ]; then
   # It's a directory!
@@ -11,7 +11,6 @@ if [ "$rootpt" ]; then
     echo "It's a symlink!"
     exit
   else
-    read -p 'Mount point (will create if it non-existent): ' mountpt
     if [ ! -d "$mountpt" ]; then
         # Create dir if doesn't exist already
         mkdir "$mountpt"
