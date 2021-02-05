@@ -9,7 +9,6 @@ set t_Co=256
 " :PluginClean to delete unused plugins, asks approval first
 set nocompatible
 filetype off
-
 " Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -19,7 +18,6 @@ call vundle#begin()
 " Let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'sainnhe/gruvbox-material'
 Plugin 'rakr/vim-one'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -51,8 +49,6 @@ set hidden
 " Autosaves file when buffer is hidden
 set autowriteall
 
-" Theme used, -soft, -hard or none is available
-" colorscheme gruvbox-hard
 
 " Line numbers + numbers relative to the current line
 set number relativenumber
@@ -106,7 +102,15 @@ let g:cpp_experimental_template_highlight = 1
 " --- gruvbox-material theme ---
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_improved_strings=1
-let g:gruvbox_number_column='orange'
+let g:gruvbox_bold=1
+"let g:gruvbox_italic=1
+let g:gruvbox_underline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_italicize_comments=1
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_termcolors = '256'
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 
 " --- ultisnips --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
 " use <Tab> trigger autocompletion
