@@ -3,7 +3,7 @@ set -o vi
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/github/.dotfiles/scripts:$HOME/.emacs.d/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/george/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Vi mode
 bindkey -v
