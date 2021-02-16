@@ -9,7 +9,7 @@ if [[ $(cat /proc/acpi/button/lid/LID0/state | awk '{print ($2)}') == "open" ]];
 fi
 
 # If lid is open, put to right of external, closed turn it off
-if "$lidstate"; then
+if [ "$lidstate" ]; then
     xrandr --output "$extern" --auto --output "$intern" --auto --right-of "$extern"
 else
     xrandr --output "$intern" --off --output "$extern" --auto
