@@ -1,4 +1,9 @@
 # ----- Display ----- #
+# Run polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Set keyboard delay rate
+exec --no-startup-id xset r rate 200 25
 
 # Update screen settings on refresh
 exec --no-startup-id switch_display.sh
@@ -20,13 +25,13 @@ exec --no-startup-id insync start
 
 # run tmux on first workspace on login,
 # attatch to most recently closed session if exists
-exec --no-startup-id alacritty -e "tmux a || tmux new"
+# exec --no-startup-id alacritty -e "tmux a || tmux new"
 
 # connect to VPN
 exec --no-startup-id nordvpn connect
 
 # start bluetooth client
-exec --no-startup-id blueberry
+exec_always --no-startup-id blueman-applet
 
 # For battery status icon
 #exec --no-startup-id cbatticon
@@ -92,7 +97,7 @@ for_window [urgent=latest] focus
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
-bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+w exec --no-startup-id firefox
 bindsym $mod+r exec --no-startup-id alacritty -e ranger
 bindsym $mod+o exec --no-startup-id zathura
@@ -102,9 +107,9 @@ bindsym $mod+c exec --no-startup-id clion
 #bindsym $mod+y exec --no-startup-id telegram-desktop
 #bindsym $mod+p exec --no-startup-id deepin-screenshot
 ## Multi-screen screenshots with scrot
-bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+bindsym --release Print exec --no-startup-id scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 ## OSX-like area selection screenshots
-bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
+bindsym --release Shift+Print exec --no-startup-id scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
 
 # ----- Window/container options ----- #
@@ -119,6 +124,17 @@ set $ws7 7
 set $ws8 "8:"
 set $ws9 "9:"
 set $ws0 "10:"
+
+workspace $ws1 output eDP-1
+workspace $ws2 output DP-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
+workspace $ws5 output DP-1
+workspace $ws6 output DP-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
+workspace $ws0 output DP-1
 
 #set $ws1 1
 #set $ws2 2
@@ -196,8 +212,8 @@ bindsym $mod+Shift+l move right
 #----- i3-gaps ----- #
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 2
+#gaps inner 5
+#gaps outer 2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -205,11 +221,11 @@ gaps outer 2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+#smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+#smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -251,24 +267,24 @@ mode "$mode_gaps_outer" {
 # ----- i3-bar ----- #
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-    hidden_state hide
-    i3bar_command i3bar
-	font pango:Inconsolata, FontAwesome 16
-	strip_workspace_numbers yes
-	position top
-	status_command i3status
+#bar {
+#    hidden_state hide
+    #i3bar_command i3bar
+	#font pango:Inconsolata, FontAwesome 16
+	#strip_workspace_numbers yes
+	#position top
+	#status_command i3status
 
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
-}
+    #colors {
+        #separator #666666
+        #background #222222
+        #statusline #dddddd
+        #focused_workspace #0088CC #0088CC #ffffff
+        #active_workspace #333333 #333333 #ffffff
+        #inactive_workspace #333333 #333333 #888888
+        #urgent_workspace #2f343a #900000 #ffffff
+    #}
+#}
 # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
@@ -338,19 +354,19 @@ set_from_resource $term_color15    color15
 # ----- Sound ----- # (DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later!)
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym $mod+Ctrl+m exec --no-startup-id terminal -e 'alsamixer'
 
 # Set keyboard repeat rate and delay
-exec termite -e xset r rate 250 30
+#exec --no-startup-id termite -e xset r rate 250 30
 
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # ----- Brightness ----- # 
 
@@ -378,13 +394,25 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+x mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym l exec --no-startup-id i3lock, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    #exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+d mode "$mode_screen"
+set $mode_screen (e)xternal, (i)nternal, (b)oth
+mode "$mode_screen" {
+    bindsym e exec no-startup-id alacritty -e control_display.sh e
+    bindsym i exec no-startup-id alacritty -e control_display.sh i
+    bindsym b exec no-startup-id alacritty -e control_display.sh b
 
     #exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -401,4 +429,4 @@ mode "$mode_system" {
 
 #######################
 
-exec_always feh --bg-scale /home/george/Pictures/trees-landscape-wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale /home/george/Pictures/mountain-wallpaper.jpg

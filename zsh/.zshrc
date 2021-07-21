@@ -78,15 +78,16 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    archlinux
+    #archlinux
     cp
     github
     vagrant
     vagrant-prompt
     vi-mode
     vim-interaction
-    #zsh-autosuggestions
-    #zsh-syntax-highlighting
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    k
     )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,7 +114,6 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias vim="vim"
 alias p="sudo pacman"
 #alias pu="sudo pacman-mirrors --country Germany,France,Netherlands,United_Kingdom && sudo pacman -Syyu"
 alias pi="sudo pacman -S"
@@ -122,7 +122,7 @@ alias pr="sudo pacman -Rsn"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias vi3="vim $HOME/.i3/config"
+alias vi3="vim $HOME/.config/i3/config"
 alias vzrc="vim $HOME/.zshrc"
 alias vrc="vim $HOME/.vimrc"
 alias hibernate="systemctl hibernate"

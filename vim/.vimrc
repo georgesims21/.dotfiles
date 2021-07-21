@@ -1,4 +1,4 @@
-let mapleader = ","
+""let mapleader = ","
 set t_Co=256
 
 "  -------------------------
@@ -7,37 +7,37 @@ set t_Co=256
 
 " :PluginInstall to install plugins, append ! to update
 " :PluginClean to delete unused plugins, asks approval first
-set nocompatible
-filetype off
+"set nocompatible
+"filetype off
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=$HOME/.vim/bundle/Vundle.vim
+"call vundle#begin()
 " Alternatively, pass a path where Vundleshould intall plugins:
 " call vundle#begin('~/some/path/here')
 
 " Let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'rakr/vim-one'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-scripts/vim-auto-save'
-Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'rhysd/vim-llvm'
-Plugin 'vim-syntastic/syntastic' 
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'Townk/vim-autoclose' 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'morhetz/gruvbox'
+"Plugin 'rakr/vim-one'
+"Plugin 'bling/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'vim-scripts/vim-auto-save'
+"Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'rhysd/vim-llvm'
+"Plugin 'vim-syntastic/syntastic' 
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'Townk/vim-autoclose' 
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
-call vundle#end()
-filetype plugin indent on 
+"call vundle#end()
+"filetype plugin indent on 
 
 " -------------------------
 " BASICS
@@ -75,7 +75,7 @@ set autoindent
 set smartindent
 
 " Show vertical bar at 80 column width
-" set colorcolumn=80
+"set colorcolumn=80
 
 " Bracket/parantheses matching
 " set highlight MatchParen ctermbg=blue huibg=lightblue
@@ -100,17 +100,17 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
 " --- gruvbox-material theme ---
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_improved_strings=1
-let g:gruvbox_bold=1
-"let g:gruvbox_italic=1
-let g:gruvbox_underline=1
-let g:gruvbox_undercurl=1
-let g:gruvbox_italicize_comments=1
-let g:gruvbox_italicize_strings=1
-let g:gruvbox_termcolors = '256'
-autocmd vimenter * ++nested colorscheme gruvbox
-set background=dark
+"let g:gruvbox_contrast_dark='hard'
+"let g:gruvbox_improved_strings=1
+"let g:gruvbox_bold=1
+""let g:gruvbox_italic=1
+"let g:gruvbox_underline=1
+"let g:gruvbox_undercurl=1
+"let g:gruvbox_italicize_comments=1
+"let g:gruvbox_italicize_strings=1
+"let g:gruvbox_termcolors = '256'
+"autocmd vimenter * ++nested colorscheme gruvbox
+"set background=dark
 
 " --- ultisnips --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
 " use <Tab> trigger autocompletion
