@@ -297,5 +297,5 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 #output DP-2 pos 0,0 scale 1
 
 # Output screens for home 4k and laptop rhs
-output eDP-1 pos 3840,0 scale 2
-output DP-3 pos 0,0 scale 1
+output eDP-1 pos 2560,0 scale 2
+output DP-3 pos 0,0 scale 1.5
