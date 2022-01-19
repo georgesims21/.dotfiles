@@ -53,13 +53,10 @@ bindsym $mod+m bar mode toggle
 focus_follows_mouse no
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout toggle
+bindsym $mod+s layout tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -156,9 +153,8 @@ set $ws0 10
 #assign [class="VirtualBox Manager"] $ws5
 #assign [class="VirtualBox Machine"] $ws5
 
-workspace $ws1 output DP-2
-workspace $ws2 output DP-3
-workspace $ws3 output eDP-1
+workspace $ws1 output DP-3
+workspace $ws0 output eDP-1
 #workspace $ws4 output DP-1
 #workspace $ws5 output DP-1
 #workspace $ws6 output DP-1
@@ -295,7 +291,11 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-# Output screens for home
+# Output screens for home 2 x 1080p and laptop rhs
+#output eDP-1 pos 3840,0 scale 2
+#output DP-3 pos 1920,0 scale 1
+#output DP-2 pos 0,0 scale 1
+
+# Output screens for home 4k and laptop rhs
 output eDP-1 pos 3840,0 scale 2
-output DP-3 pos 1920,0 scale 1
-output DP-2 pos 0,0 scale 1
+output DP-3 pos 0,0 scale 1
