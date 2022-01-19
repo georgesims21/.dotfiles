@@ -1,11 +1,10 @@
 #!/bin/bash
 
-DOTS="$HOME"/github/.dotfiles
+DOTS="$HOME"/.dotfiles
 TIME=$(date +"%D %T")
-LOG="$HOME"/log.txt
+LOG=/var/log/scripts/update_dotfiles.log
 
 cd "$DOTS"
-echo $(git pull) >> "$LOG"
-echo $(git add *) >> "$LOG"
+echo $(git add -A) >> "$LOG"
 echo $(git commit -m "Daily commit: $TIME") >> "$LOG"
 echo $(git push) >> "$LOG"
