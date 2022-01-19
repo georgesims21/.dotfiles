@@ -1,9 +1,12 @@
 set -o vi
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/github/.dotfiles/scripts:$HOME/.emacs.d/bin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 
 # Vi mode
 bindkey -v
@@ -87,7 +90,6 @@ plugins=(
     vim-interaction
     zsh-autosuggestions
     zsh-syntax-highlighting
-    k
     )
 
 source $ZSH/oh-my-zsh.sh
@@ -127,10 +129,14 @@ alias vzrc="vim $HOME/.zshrc"
 alias vrc="vim $HOME/.vimrc"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
-alias wiki='cd $HOME/github/wiki'
-alias proj='cd $HOME/github/wiki/University/Bachelor_Project'
-alias vwiki='cd $HOME/github/wiki/; nvim README.md'
-alias github='cd $HOME/github'
-alias drefresh='./.emacs.d/bin/doom refresh'
-alias dots='$HOME/github/.dotfiles'
-alias uniserver='ssh gss680@ssh.data.vu.nl'
+alias tmux='tmux -f /home/george/.config/tmux/.tmux.conf'
+alias web="cd $HOME/Projects/web"
+alias ios="cd $HOME/Projects/ios"
+alias android="cd $HOME/Projects/android"
+alias sysadmin="cd $HOME/Projects/sysadmin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
