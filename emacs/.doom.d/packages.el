@@ -25,6 +25,10 @@
 (package! ein)
 (package! groovy-mode)
 (package! yaml-mode)
+(package! jenkins)
+(package! highlight-indent-guides)
+(package! activity-watch-mode)
+
 
 ;; To install a package directly from a particular repo, you'll need to specify
 ;; a `:recipe'. You'll find documentation on what `:recipe' accepts here:

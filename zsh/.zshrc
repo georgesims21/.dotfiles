@@ -1,12 +1,17 @@
 set -o vi
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
 
 # Vi mode
 bindkey -v
@@ -134,9 +139,34 @@ alias web="cd $HOME/Projects/web"
 alias ios="cd $HOME/Projects/ios"
 alias android="cd $HOME/Projects/android"
 alias sysadmin="cd $HOME/Projects/sysadmin"
+alias sort-mirrors="""
+	export TMPFILE="$(mktemp)"; \
+	sudo true; \
+	rate-mirrors --save=$TMPFILE arch --max-delay=43200 \
+		&& sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+		&& sudo mv $TMPFILE /etc/pacman.d/mirrorlist
+"""
+ssh() {
+	if [ -n "$TMUX" ]; then
+		tmux -2u rename-window "$(echo $* | rev | cut -d '@' -f1 | rev)";
+		command ssh "$@";
+		tmux -2u set-window-option automatic-rename "on" > /dev/null;
+	else
+	command ssh "$@";
+	fi
+}
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
+
+# allow autocomplete for terraform
+#terraform -install-autocomplete
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

@@ -12,7 +12,7 @@ input * repeat_delay 250
 input * repeat_rate 25
 
 # Set wallpaper
-output "*" bg /etc/endevour/community-wallpapers/eos_wallpapers_community/EOS_SPACEMAN_4K.png fill
+output "*" bg /home/george/Pictures/san-fran-wallpaper-4k.jpg fill
 
 # ----- Autostart ----- #
 
@@ -93,6 +93,8 @@ for_window [urgent=latest] focus
 set $swaylock swaylock \
     -f \
 	--screenshots \
+  --color 000000 \
+  --inside-ver-color 000000 \
 	--clock \
 	--indicator \
 	--indicator-radius 100 \
@@ -114,9 +116,10 @@ bindsym $mod+Shift+x exec --no-startup-id $swaylock
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
 bindsym $mod+d exec --no-startup-id wofi -show run
-bindsym $mod+w exec --no-startup-id google-chrome-stable
+bindsym $mod+w exec --no-startup-id chromium
 bindsym $mod+r exec --no-startup-id alacritty -e ranger
 bindsym $mod+o exec --no-startup-id zathura
+bindsym $mod+v exec --no-startup-id vlc
 bindsym $mod+e exec --no-startup-id emacs
 bindsym $mod+p exec --no-startup-id grimshot --notify copy active
 bindsym $mod+Shift+p exec --no-startup-id grimshot --notify copy area
@@ -297,6 +300,13 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 #output DP-3 pos 1920,0 scale 1
 #output DP-2 pos 0,0 scale 1
 
+# WORK - 1080L 4kR
+#output eDP-1 pos 1920,0 scale 2
+#output DP-3 pos 0,0 scale 1
+
 # Output screens for home 4k and laptop rhs
 output eDP-1 pos 2560,0 scale 2
 output DP-3 pos 0,0 scale 1.5
+
+# Random
+#output eDP-1 pos 0,0 scale 2
