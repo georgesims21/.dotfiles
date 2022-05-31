@@ -45,6 +45,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+(setq editorconfig-mode 1)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

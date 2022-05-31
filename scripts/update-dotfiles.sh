@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTS="$HOME"/.dotfiles
+DOTS=/home/george/.dotfiles
 TIME=$(date +"%D %T")
 LOG=/var/log/scripts/update_dotfiles.log
 

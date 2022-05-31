@@ -3,6 +3,7 @@ set -o vi
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/go/bin/hello"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -12,6 +13,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
+export INFLUX_TOKEN=Q-UW79jVtHy279iH4AGaIJ29qABnnL3g7Irbu3XSLuwLTWlC-E_djg9goh0di0KQ0FfyQgkxIAo_eiaWdkk9Cg==
+export GOPATH="$HOME/github/go"
+# export FPATH="$HOME/.dotfiles/zsh/functions:$FPATH"
 
 # Vi mode
 bindkey -v
@@ -135,10 +139,10 @@ alias vrc="vim $HOME/.vimrc"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
 alias tmux='tmux -f /home/george/.config/tmux/.tmux.conf'
-alias web="cd $HOME/Projects/web"
-alias ios="cd $HOME/Projects/ios"
-alias android="cd $HOME/Projects/android"
-alias sysadmin="cd $HOME/Projects/sysadmin"
+alias web="cd $HOME/bb/web"
+alias ios="cd $HOME/bb/ios"
+alias android="cd $HOME/bb/android"
+alias sysadmin="cd $HOME/bb/sysadmin"
 alias sort-mirrors="""
 	export TMPFILE="$(mktemp)"; \
 	sudo true; \
@@ -155,6 +159,23 @@ ssh() {
 	command ssh "$@";
 	fi
 }
+
+ggrep() {
+	git grep -o -n --color $1 | less
+}
+
+# saltstack() {
+#     local saltdir="$HOME/bb/sysadmin/salt"
+#     local repo="saltstack-$1-$2"
+#     local path="$saltdir/$repo"
+#     if [ -d $path ]; then
+#         cd "/home/george/bb/sysadmin/salt/saltstack-formula-grafana"
+#     else
+#     #     local sshurl="ssh://git@git.m2mobi.com:7999/mms/$repo.git"
+#     #     # git clone "$sshurl" "$path"
+#     #     echo "hello"
+#     fi
+# }
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

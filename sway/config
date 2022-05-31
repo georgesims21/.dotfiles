@@ -17,7 +17,7 @@ output "*" bg /home/george/Pictures/san-fran-wallpaper-4k.jpg fill
 # ----- Autostart ----- #
 
 # autohide mouse cursor
-#exec --no-startup-id unclutter -idle 1 -jitter 2
+exec --no-startup-id unclutter -idle 1 -jitter 2
 
 # start insync client
 #exec --no-startup-id insync start
@@ -84,7 +84,7 @@ default_border pixel 1
 hide_edge_borders none
 
 # set font
-font pango:inconsolata 14
+font pango:inconsolata 16
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -112,12 +112,13 @@ set $swaylock swaylock \
 bindsym $mod+Shift+x exec --no-startup-id $swaylock
 
 # ----- Main program shortcuts ----- #
+set $terminal 'alacritty'
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
 bindsym $mod+d exec --no-startup-id wofi -show run
 bindsym $mod+w exec --no-startup-id chromium
-bindsym $mod+r exec --no-startup-id alacritty -e ranger
+bindsym $mod+r exec --no-startup-id $terminal -e ranger
 bindsym $mod+o exec --no-startup-id zathura
 bindsym $mod+v exec --no-startup-id vlc
 bindsym $mod+e exec --no-startup-id emacs
@@ -126,27 +127,27 @@ bindsym $mod+Shift+p exec --no-startup-id grimshot --notify copy area
 
 # ----- Window/container options ----- #
 
-#set $ws1 "1:"
-#set $ws2 "2:"
-#set $ws3 "3:"
+set $ws1 "10:"
+set $ws2 "2:"
+set $ws3 "3:"
 #set $ws4 "4:"
 #set $ws5 "5:"
-#set $ws6 "6:"
+set $ws4 "4:"
 #set $ws7 7
 #set $ws8 "8:"
 #set $ws9 "9:"
-#set $ws0 "10:"
+set $ws0 "1:"
 
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
+# set $ws1 1
+# set $ws2 2
+# set $ws3 3
+# set $ws4 4
 set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
 set $ws9 9
-set $ws0 10
+# set $ws0 10
 
 # ----- Open on specific workspace ----- #
 
@@ -156,15 +157,16 @@ set $ws0 10
 #assign [class="VirtualBox Manager"] $ws5
 #assign [class="VirtualBox Machine"] $ws5
 
-workspace $ws1 output DP-3
-workspace $ws0 output eDP-1
-#workspace $ws4 output DP-1
-#workspace $ws5 output DP-1
-#workspace $ws6 output DP-1
-#workspace $ws7 output DP-1
-#workspace $ws8 output DP-1
-#workspace $ws9 output DP-1
-#workspace $ws0 output DP-1
+# workspace $ws0 output DP-2
+workspace $ws1 output eDP-1
+# workspace $ws2 output DP-3
+# workspace $ws3 output DP-3
+# workspace $ws4 output DP-3
+# workspace $ws5 output DP-3
+# workspace $ws6 output DP-3
+# workspace $ws7 output DP-3
+# workspace $ws8 output DP-3
+# workspace $ws9 output DP-3
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -247,11 +249,11 @@ bar {
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #00e600 #00e600 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.focused          #FDF6E3 #242323 #FDF6E3 #FDF6E3 #FFFFFF
+  client.focused_inactive #333333 #242323 #FDF6E3 #454948
+  client.unfocused        #333333 #242323 #FDF6E3 #454948
+  client.urgent           #242323 #242323 #FDF6E3 #268BD2
+  client.placeholder      #000000 #242323 #FDF6E3 #000000
 
   client.background       #2B2C2B
 
@@ -301,12 +303,17 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 #output DP-2 pos 0,0 scale 1
 
 # WORK - 1080L 4kR
-#output eDP-1 pos 1920,0 scale 2
-#output DP-3 pos 0,0 scale 1
+# output eDP-1 pos 1920,0 scale 2
+# output DP-2 pos 0,0 scale 1
 
-# Output screens for home 4k and laptop rhs
-output eDP-1 pos 2560,0 scale 2
-output DP-3 pos 0,0 scale 1.5
+# Output screens for home: [laptop | 4k | 1080p (90* rotation)]
+output eDP-1 pos 0,0 scale 2
+output DP-3 pos 1920,0 scale 1.5
+output DP-2 pos 4480,0 scale 1 transform 90
+
+# Output screens for home 4k without laptop
+# output eDP-1 disable
+# output DP-3 pos 0,0 scale 1.5 mode 3840x2400@60Hz
 
 # Random
-#output eDP-1 pos 0,0 scale 2
+# output eDP-1 pos 0,0 scale 2

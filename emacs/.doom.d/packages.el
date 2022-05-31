@@ -28,6 +28,8 @@
 (package! jenkins)
 (package! highlight-indent-guides)
 (package! activity-watch-mode)
+(package! dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 
 ;; To install a package directly from a particular repo, you'll need to specify
