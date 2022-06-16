@@ -7,22 +7,17 @@
 	"modules-left": [
 		"sway/workspaces",
 		"custom/right-arrow-dark",
-		"custom/left-arrow-dark",
+		"custom/right-arrow-light",
 		"custom/clockify",
 		"custom/right-arrow-dark",
-		"custom/spotify2"
+		"custom/right-arrow-light",
+		"custom/spotify",
+		"custom/right-arrow-dark"
 	],
 	"modules-center": [
-		//"custom/left-arrow-dark",
-		//"clock#1",
-		//"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"clock#4",
-		//"clock#3",
 		"custom/right-arrow-dark"
-		//"custom/right-arrow-light",
-		//"clock#3",
-		//"custom/right-arrow-dark"
 	],
 	"modules-right": [
 		"custom/left-arrow-dark",
@@ -57,6 +52,15 @@
 		"tooltip": false
 	},
 	"custom/right-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/left-arrow-green": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-green": {
 		"format": "",
 		"tooltip": false
 	},
@@ -133,24 +137,14 @@
 		"icon-size": 20
 	},
 	"custom/spotify": {
-		"exec": "/usr/bin/python3 /home/george/.dotfiles/scripts/sway/mediaplayer.py --player /usr/bin/spotify",
-		"format": "{}  ",
-		"return-type": "json",
-		"on-click": "playerctl play-pause",
-		"on-scroll-up": "playerctl next",
-		"on-scroll-down": "playerctl previous"
-	},
-	"custom/spotify2": {
+		"exec": "/usr/bin/python3 /home/george/.dotfiles/waybar/scripts/mediaplayer.py",
 		"format": " {}",
-		"max-length": 40,
-		"interval": 30, // Remove this if your script is endless and write in loop
-		"exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
-		"exec-if": "pgrep spotify",
-		"return-type": "json"
+		"return-type": "json",
+		"on-click": "playerctl play-pause"
 	},
 	"custom/clockify": {
 		"exec": "/usr/bin/python3 $HOME/bin/clockify-curr-task.py",
 		"interval": 1,
-		"format": "  {} "
+		"format": "  {}"
 	}
 }

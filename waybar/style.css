@@ -29,8 +29,20 @@ window#waybar {
 #battery,
 #disk,
 #custom-clockify,
+#custom-spotify,
 #tray {
 	background: #1a1a1a;
+}
+
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#custom-spotify,
+#custom-clockify,
+#disk {
+	padding: 0 10px;
 }
 
 #workspaces button {
@@ -65,23 +77,9 @@ window#waybar {
 #disk {
 	color: #b58900;
 }
-
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk {
-	padding: 0 10px;
-}
-
 #custom-spotify {
-    padding: 0 10px;
-    margin: 0 4px;
-    background-color: #1DB954;
-    color: black;
+    color: #1DB954;;
 }
-
 #custom-clockify {
 	color: #0099ff
 }
