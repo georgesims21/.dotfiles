@@ -6,9 +6,11 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"custom/right-arrow-dark"
-		// "custom/spotify",
-		// "custom/right-arrow-dark"
+		"custom/right-arrow-dark",
+		"custom/left-arrow-dark",
+		"custom/clockify",
+		"custom/right-arrow-dark",
+		"custom/spotify2"
 	],
 	"modules-center": [
 		//"custom/left-arrow-dark",
@@ -137,5 +139,18 @@
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl next",
 		"on-scroll-down": "playerctl previous"
+	},
+	"custom/spotify2": {
+		"format": " {}",
+		"max-length": 40,
+		"interval": 30, // Remove this if your script is endless and write in loop
+		"exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null", // Script in resources folder
+		"exec-if": "pgrep spotify",
+		"return-type": "json"
+	},
+	"custom/clockify": {
+		"exec": "/usr/bin/python3 $HOME/bin/clockify-curr-task.py",
+		"interval": 1,
+		"format": "  {} "
 	}
 }

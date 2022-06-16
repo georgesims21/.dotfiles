@@ -30,6 +30,8 @@
 (package! activity-watch-mode)
 (package! dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+(package! flycheck)
+;; (add-to-list 'auto-mode-alist '("*.sh" . flycheck))
 
 
 ;; To install a package directly from a particular repo, you'll need to specify

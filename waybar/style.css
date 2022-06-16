@@ -28,6 +28,7 @@ window#waybar {
 #cpu,
 #battery,
 #disk,
+#custom-clockify,
 #tray {
 	background: #1a1a1a;
 }
@@ -79,4 +80,8 @@ window#waybar {
     margin: 0 4px;
     background-color: #1DB954;
     color: black;
+}
+
+#custom-clockify {
+	color: #0099ff
 }

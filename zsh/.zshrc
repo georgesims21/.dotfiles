@@ -15,6 +15,7 @@ export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export INFLUX_TOKEN=Q-UW79jVtHy279iH4AGaIJ29qABnnL3g7Irbu3XSLuwLTWlC-E_djg9goh0di0KQ0FfyQgkxIAo_eiaWdkk9Cg==
 export GOPATH="$HOME/github/go"
+export ANKI_WAYLAND=1
 # export FPATH="$HOME/.dotfiles/zsh/functions:$FPATH"
 
 # Vi mode
