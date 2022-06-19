@@ -8,7 +8,7 @@
 		"sway/workspaces",
 		"custom/right-arrow-dark",
 		"custom/right-arrow-light",
-		"custom/clockify",
+		"custom/nordvpn",
 		"custom/right-arrow-dark",
 		"custom/right-arrow-light",
 		"custom/spotify",
@@ -146,5 +146,10 @@
 		"exec": "/usr/bin/python3 $HOME/bin/clockify-curr-task.py",
 		"interval": 1,
 		"format": "  {}"
+	},
+	"custom/nordvpn": {
+		"exec": "$HOME/.dotfiles/waybar/scripts/nordvpn.py",
+		"interval": 1,
+		"format": "  {}"
 	}
 }
