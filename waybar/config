@@ -137,7 +137,7 @@
 		"icon-size": 20
 	},
 	"custom/spotify": {
-		"exec": "/usr/bin/python3 /home/george/.dotfiles/waybar/scripts/mediaplayer.py",
+		"exec": "/usr/bin/python3 /home/george/.dotfiles/waybar/scripts/mediaplayer.py --player spotify",
 		"format": " {}",
 		"return-type": "json",
 		"on-click": "playerctl play-pause"

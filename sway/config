@@ -12,7 +12,7 @@ input * repeat_delay 250
 input * repeat_rate 25
 
 # Set wallpaper
-output "*" bg /home/george/Pictures/san-fran-wallpaper-4k.jpg fill
+output "*" bg "$HOME/Pictures/wallpapers/san-francisco-4k-wallpaper.jpg" fill
 
 # ----- Autostart ----- #
 
@@ -107,7 +107,8 @@ set $swaylock swaylock \
 	--inside-color 00000088 \
 	--separator-color 00000000 \
 	--grace 2 \
-	--fade-in 0.2
+	--fade-in 0.2 \
+  --font-size 50
 
 bindsym $mod+Shift+x exec --no-startup-id $swaylock
 
@@ -117,7 +118,7 @@ set $terminal 'alacritty'
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
 bindsym $mod+d exec --no-startup-id wofi -show run
-bindsym $mod+w exec --no-startup-id chromium
+bindsym $mod+w exec --no-startup-id google-chrome-stable
 bindsym $mod+r exec --no-startup-id $terminal -e ranger
 bindsym $mod+o exec --no-startup-id zathura
 bindsym $mod+v exec --no-startup-id vlc
@@ -297,24 +298,7 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-# Output screens for home 2 x 1080p and laptop rhs
-#output eDP-1 pos 3840,0 scale 2
-#output DP-3 pos 1920,0 scale 1
-#output DP-2 pos 0,0 scale 1
-
-# WORK - 1080L 4kR
-#output eDP-1 pos 0,0 scale 2
-#output DP-1 pos 1920,0 scale 2
-
 # Output screens for home: [laptop | 4k | 1080p (90* rotation)]
-output eDP-1 pos 0,0 scale 2
-#output DP-3 mode --custom 2560x1440@65Hz pos 1920,0 scale 1
-output DP-1 mode --custom 3840x2160@30Hz pos 1920,0 scale 1.5
-output DP-3 pos 4480,0 scale 1 transform 90
-
-# Output screens for home 4k without laptop
-# output eDP-1 disable
-# output DP-3 pos 0,0 scale 1.5 mode 3840x2400@60Hz
-
-# Random
-# output eDP-1 pos 0,0 scale 2
+output eDP-1 pos 0,0 scale 1.2
+output DP-1 mode --custom 3840x2160@30Hz pos 1600,0 scale 1.5
+# output DP-2 scale 1 transform 90
