@@ -19,14 +19,15 @@ echo "----- BACKUP STARTED: $(date) -----"
 if [[ -e "$backup_dir/$file" ]]; then
     echo "$file already exists! Exiting..."
     exit 1
+if ! [[ -e "$backup_dir/$file" ]]; then
+    tar --exclude="$home_dir/Backups" \
+        --exclude="$home_dir/Downloads" \
+        --exclude="$home_dir/.cache" \
+        --exclude="$home_dir/.mozilla" \
+        -cvpzf "$backup_dir/$file" "$home_dir"
+else
+    echo "$file already exists! Skipping archive creation..."
 fi
-
-tar --exclude="$home_dir/.config" \
-    --exclude="$home_dir/Backups" \
-    --exclude="$home_dir/Downloads" \
-    --exclude="$home_dir/.cache" \
-    --exclude="$home_dir/.mozilla" \
-    -cvpzf "$backup_dir/$file" "$home_dir"
 
 if [[ $? -ne 0 ]]; then
     echo 'tar did not exit successfully, not copying file to gdrive! Exiting...'
