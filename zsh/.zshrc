@@ -1,5 +1,5 @@
 set -o vi
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:/usr/local/go/bin
 
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
@@ -9,6 +9,7 @@ export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export ANKI_WAYLAND=1
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -47,6 +48,8 @@ alias vrc="vim $HOME/.vimrc"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
 alias tmux='tmux -f /home/george/.config/tmux/.tmux.conf'
+alias k='kubectl'
+alias kgp='kubectl get pods'
 alias sort-mirrors="""
 	export TMPFILE="$(mktemp)"; \
 	sudo true; \
@@ -70,3 +73,11 @@ ssh() {
 ggrep() {
 	git grep -o -n --color $1 | less
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/george/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
