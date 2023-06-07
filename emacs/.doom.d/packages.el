@@ -22,6 +22,7 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 
+(package! undo-fu)
 (package! ein)
 (package! groovy-mode)
 (package! yaml-mode)
