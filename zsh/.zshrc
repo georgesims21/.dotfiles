@@ -1,5 +1,5 @@
 set -o vi
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:
+export PATH=/usr/local/opt/texinfo/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.rd/bin:$HOME/Scripts
 
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
@@ -30,6 +30,7 @@ plugins=(
     vim-interaction
     zsh-autosuggestions
     zsh-syntax-highlighting
+    kube-ps1
     )
 source $ZSH/oh-my-zsh.sh
 
@@ -46,7 +47,7 @@ alias vzrc="vim $HOME/.zshrc"
 alias vrc="vim $HOME/.vimrc"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
-alias tmux='tmux -f /home/george/.config/tmux/.tmux.conf'
+alias tmux='tmux -f ~/.dotfiles/tmux/.tmux.conf'
 alias sort-mirrors="""
 	export TMPFILE="$(mktemp)"; \
 	sudo true; \
@@ -54,6 +55,26 @@ alias sort-mirrors="""
 		&& sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
 		&& sudo mv $TMPFILE /etc/pacman.d/mirrorlist
 """
+alias gfp="git push --force-with-lease"
+alias gitprev="git diff-tree --no-commit-id --name-only -r"
+alias awslogin="saml2aws login && aws ecr get-login-password --profile shared \
+    --region eu-west-1 | docker login --username AWS --password-stdin \
+    893087526002.dkr.ecr.eu-west-1.amazonaws.com"
+alias tl='telepresence'
+
+# Kubernetes
+alias k="kubectl"
+alias kg="kubectl get"
+alias kd="kubectl describe"
+alias kgp="kubectl get pods"
+alias kl="kubectl logs"
+alias kc="kubectx $1"
+alias kn="kubens $1"
+alias kgn="kubectl get namespace"
+alias kgc="kubectx"
+alias ka="kubectl apply"
+
+# Functions
 cdmkdir() {
 	mkdir $1 && cd $1
 }
@@ -70,3 +91,8 @@ ssh() {
 ggrep() {
 	git grep -o -n --color $1 | less
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
