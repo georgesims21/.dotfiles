@@ -7,20 +7,20 @@ set t_Co=256
 
 " :PluginInstall to install plugins, append ! to update
 " :PluginClean to delete unused plugins, asks approval first
-"set nocompatible
-"filetype off
+set nocompatible
+filetype off
 " Set the runtime path to include Vundle and initialize
-"set rtp+=$HOME/.vim/bundle/Vundle.vim
-"call vundle#begin()
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
 " Alternatively, pass a path where Vundleshould intall plugins:
 " call vundle#begin('~/some/path/here')
 
 " Let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'morhetz/gruvbox'
-"Plugin 'rakr/vim-one'
-"Plugin 'bling/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'morhetz/gruvbox'
+" Plugin 'rakr/vim-one'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/nerdcommenter'
 "Plugin 'vim-scripts/vim-auto-save'
@@ -36,8 +36,8 @@ set t_Co=256
 "Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 
-"call vundle#end()
-"filetype plugin indent on 
+call vundle#end()
+filetype plugin indent on 
 
 " -------------------------
 " BASICS
@@ -100,17 +100,19 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
 " --- gruvbox-material theme ---
-"let g:gruvbox_contrast_dark='hard'
+"  https://github.com/morhetz/gruvbox/wiki/Configuration
+"colorscheme gruvbox
+"let g:gruvbox_contrast_dark='medium'
 "let g:gruvbox_improved_strings=1
-"let g:gruvbox_bold=1
-""let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+"let g:gruvbox_italic=1
 "let g:gruvbox_underline=1
 "let g:gruvbox_undercurl=1
 "let g:gruvbox_italicize_comments=1
 "let g:gruvbox_italicize_strings=1
 "let g:gruvbox_termcolors = '256'
-"autocmd vimenter * ++nested colorscheme gruvbox
-"set background=dark
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 
 " --- ultisnips --- https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/
 " use <Tab> trigger autocompletion
