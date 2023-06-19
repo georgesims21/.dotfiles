@@ -73,6 +73,8 @@ alias kn="kubens $1"
 alias kgn="kubectl get namespace"
 alias kgc="kubectx"
 alias ka="kubectl apply"
+alias prc="gh pr create --fill | tee /dev/tty | pbcopy"
+alias prcd="gh pr create --fill --draft | tee /dev/tty | pbcopy"
 
 # Functions
 cdmkdir() {

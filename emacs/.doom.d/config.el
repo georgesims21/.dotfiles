@@ -29,6 +29,56 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-gruvbox)
 
+;; Packages
+;; === vterm ===
+(defvar vterm-toggle--buffer-name "*vterm*")
+
+(defun vterm-toggle ()
+  "Toggle vterm buffer."
+  (interactive)
+  (if (get-buffer vterm-toggle--buffer-name)
+      (progn
+        (when (get-buffer-window vterm-toggle--buffer-name)
+          (delete-window (get-buffer-window vterm-toggle--buffer-name)))
+        (kill-buffer vterm-toggle--buffer-name))
+    (vterm)))
+
+;; Set the shell to zsh
+(setq vterm-shell "/bin/zsh")
+
+;; Set the initial number of rows and columns
+(setq vterm-max-scrollback 10000)
+(setq vterm-buffer-name-string "vterm: %s")
+
+;; Keybindings to toggle vterm
+(map! :leader
+      (:prefix "t"
+       :desc "Toggle vterm" "t" #'vterm-toggle))
+
+;; === magit ===
+
+;; Create PR via magit
+(require 'magit)
+
+(defun magit-create-pull-request-draft ()
+    "Create a draft pull request using GitHub CLI."
+      (interactive)
+        (let* ((base-branch (magit-get-current-branch))
+                        (head-branch (magit-read-other-branch "Head branch")))
+              (magit-shell-command "gh pr create --draft --fill")))
+
+(defun magit-create-pull-request-regular ()
+    "Create a regular pull request using GitHub CLI."
+      (interactive)
+        (let* ((base-branch (magit-get-current-branch))
+                        (head-branch (magit-read-other-branch "Head branch")))
+              (magit-shell-command "gh pr create --fill")))
+
+(define-key magit-mode-map (kbd "§") #'magit-create-pull-request-draft)
+:w
+(define-key magit-mode-map (kbd "±") #'magit-create-pull-request-regular)
+
+;; === org mode ===
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 
@@ -63,3 +113,18 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Terraform mode
+;; auto-format any files with the .tf extension. This mode will auto-enable
+;; when a file with extension .tf is opened.
+(after! terraform-mode
+  (add-hook 'terraform-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook
+                        (lambda ()
+                          (when (eq major-mode 'terraform-mode)
+                            (let ((formatted-content (shell-command-to-string (format "terraform fmt -write=false -diff -" buffer-file-name))))
+                              (setq inhibit-read-only t)
+                              (erase-buffer)
+                              (insert formatted-content)
+                              (setq inhibit-read-only nil))))))))

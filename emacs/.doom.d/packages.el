@@ -32,6 +32,7 @@
 (package! dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 (package! flycheck)
+(package! hydra)
 ;; (add-to-list 'auto-mode-alist '("*.sh" . flycheck))
 
 
