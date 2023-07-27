@@ -50,6 +50,7 @@ alias vf='vim $(fzf)'
 alias tmux='tmux -f /home/george/.config/tmux/.tmux.conf'
 alias k='kubectl'
 alias kgp='kubectl get pods'
+alias acheck='ansible-playbook playbook.yaml --check --diff'
 alias sort-mirrors="""
 	export TMPFILE="$(mktemp)"; \
 	sudo true; \
