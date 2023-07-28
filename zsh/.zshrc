@@ -9,7 +9,10 @@ export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export ANKI_WAYLAND=1
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
+#export GO111MODULE=on go get golang.org/x/tools/gopls@latest
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 bindkey -v
 export KEYTIMEOUT=1
