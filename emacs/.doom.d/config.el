@@ -30,6 +30,22 @@
 (setq doom-theme 'doom-gruvbox)
 
 ;; Packages
+;; === lsp === src: https://geeksocket.in/posts/emacs-lsp-go/
+; Company mode
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 1)
+
+;; install gopls via `'go install golang.org/x/tools/gopls@latest`
+;; Go - lsp-mode
+;; Set up before-save hooks to format buffer and add/delete imports.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Start LSP Mode and YASnippet mode
+(add-hook 'go-mode-hook #'lsp-deferred)
+(add-hook 'go-mode-hook #'yas-minor-mode)
 ;; === vterm ===
 (defvar vterm-toggle--buffer-name "*vterm*")
 
@@ -65,18 +81,17 @@
       (interactive)
         (let* ((base-branch (magit-get-current-branch))
                         (head-branch (magit-read-other-branch "Head branch")))
-              (magit-shell-command "gh pr create --draft --fill")))
+              (magit-shell-command "gh pr create --draft --fill | tee /dev/tty | pbcopy")))
 
 (defun magit-create-pull-request-regular ()
     "Create a regular pull request using GitHub CLI."
       (interactive)
         (let* ((base-branch (magit-get-current-branch))
                         (head-branch (magit-read-other-branch "Head branch")))
-              (magit-shell-command "gh pr create --fill")))
+              (magit-shell-command "gh pr create --fill | tee /dev/tty | pbcopy")))
 
-(define-key magit-mode-map (kbd "§") #'magit-create-pull-request-draft)
-:w
-(define-key magit-mode-map (kbd "±") #'magit-create-pull-request-regular)
+(define-key magit-mode-map (kbd "=") #'magit-create-pull-request-draft)
+(define-key magit-mode-map (kbd "+") #'magit-create-pull-request-regular)
 
 ;; === org mode ===
 ;; If you use `org' and don't want your org files in the default location below,
@@ -117,14 +132,14 @@
 ;; Terraform mode
 ;; auto-format any files with the .tf extension. This mode will auto-enable
 ;; when a file with extension .tf is opened.
-(after! terraform-mode
-  (add-hook 'terraform-mode-hook
-            (lambda ()
-              (add-hook 'after-save-hook
-                        (lambda ()
-                          (when (eq major-mode 'terraform-mode)
-                            (let ((formatted-content (shell-command-to-string (format "terraform fmt -write=false -diff -" buffer-file-name))))
-                              (setq inhibit-read-only t)
-                              (erase-buffer)
-                              (insert formatted-content)
-                              (setq inhibit-read-only nil))))))))
+;; (after! terraform-mode
+;;   (add-hook 'terraform-mode-hook
+;;             (lambda ()
+;;               (add-hook 'after-save-hook
+;;                         (lambda ()
+;;                           (when (eq major-mode 'terraform-mode)
+;;                             (let ((formatted-content (shell-command-to-string (format "terraform fmt -write=false -diff -" buffer-file-name))))
+;;                               (setq inhibit-read-only t)
+;;                               (erase-buffer)
+;;                               (insert formatted-content)
+;;                               (setq inhibit-read-only nil))))))))
