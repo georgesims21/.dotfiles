@@ -21,8 +21,10 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Medium))
-;; (setq doom-font (font-spec :family "Font Awesome 5 Free" :size 18))
+
+(if (eq system-type 'darwin) ; Check if the system is macOS
+    (setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Medium)) ; Set font size for macOS
+  (setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Bold))) ; Set font size for Linux
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
