@@ -1,5 +1,5 @@
 set -o vi
-export PATH=/usr/local/opt/texinfo/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.rd/bin:$HOME/Scripts
+export PATH=/usr/local/opt/texinfo/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.rd/bin:$HOME/Scripts:/opt/h-m-m
 
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
@@ -19,11 +19,12 @@ export KEYTIMEOUT=1
 
 #wmname LG3D <- this was a clion fix in wayland (sway wm)
 
-ZSH_THEME="risto"
+ZSH_THEME="personal"
 SPACESHIP_VI_MODE_SHOW=false
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(
+    fzf-zsh-plugin
     git
     #archlinux
     cp
@@ -61,10 +62,11 @@ alias sort-mirrors="""
 """
 alias gfp="git push --force-with-lease"
 alias gitprev="git diff-tree --no-commit-id --name-only -r"
-alias awslogin="saml2aws login && aws ecr get-login-password --profile shared \
+alias awslogin="saml2aws login --skip-prompt && aws ecr get-login-password --profile shared \
     --region eu-west-1 | docker login --username AWS --password-stdin \
     893087526002.dkr.ecr.eu-west-1.amazonaws.com"
 alias tl='telepresence'
+alias hmm='h-m-m'
 
 # Kubernetes
 alias k="kubectl"
@@ -79,6 +81,7 @@ alias kgc="kubectx"
 alias ka="kubectl apply"
 alias prc="gh pr create --fill | tee /dev/tty | pbcopy"
 alias prcd="gh pr create --fill --draft | tee /dev/tty | pbcopy"
+
 
 # Functions
 cdmkdir() {
@@ -98,6 +101,19 @@ ggrep() {
 	git grep -o -n --color $1 | less
 }
 
+# fzf
+# fh - repeat history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+} 
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -106,3 +122,5 @@ export NVM_DIR="$HOME/.nvm"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/george.sims/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

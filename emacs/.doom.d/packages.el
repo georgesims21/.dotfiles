@@ -32,7 +32,10 @@
 (package! dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 (package! flycheck)
+(package! org-journal)
 (package! hydra)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 ;; (add-to-list 'auto-mode-alist '("*.sh" . flycheck))
 
 

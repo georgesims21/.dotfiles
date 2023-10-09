@@ -30,6 +30,16 @@
 (setq doom-theme 'doom-gruvbox)
 
 ;; Packages
+;; === gh-copilot
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
 ;; === lsp === src: https://geeksocket.in/posts/emacs-lsp-go/
 ; Company mode
 (setq company-idle-delay 0)
@@ -82,16 +92,16 @@
         (let* ((base-branch (magit-get-current-branch))
                         (head-branch (magit-read-other-branch "Head branch")))
               (magit-shell-command "gh pr create --draft --fill | tee /dev/tty | pbcopy")))
+(define-key magit-mode-map (kbd "+") #'magit-create-pull-request-draft)
 
-(defun magit-create-pull-request-regular ()
-    "Create a regular pull request using GitHub CLI."
-      (interactive)
-        (let* ((base-branch (magit-get-current-branch))
-                        (head-branch (magit-read-other-branch "Head branch")))
-              (magit-shell-command "gh pr create --fill | tee /dev/tty | pbcopy")))
+;; (defun magit-create-pull-request-regular ()
+;;     "Create a regular pull request using GitHub CLI."
+;;       (interactive)
+;;         (let* ((base-branch (magit-get-current-branch))
+;;                         (head-branch (magit-read-other-branch "Head branch")))
+;;               (magit-shell-command "gh pr create --fill | tee /dev/tty | pbcopy")))
 
-(define-key magit-mode-map (kbd "=") #'magit-create-pull-request-draft)
-(define-key magit-mode-map (kbd "+") #'magit-create-pull-request-regular)
+;; (define-key magit-mode-map (kbd "+") #'magit-create-pull-request-regular)
 
 ;; === org mode ===
 ;; If you use `org' and don't want your org files in the default location below,
