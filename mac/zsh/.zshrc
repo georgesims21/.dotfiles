@@ -19,7 +19,7 @@ export KEYTIMEOUT=1
 
 #wmname LG3D <- this was a clion fix in wayland (sway wm)
 
-ZSH_THEME="personal"
+ZSH_THEME="risto"
 SPACESHIP_VI_MODE_SHOW=false
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
@@ -52,7 +52,7 @@ alias vzrc="vim $HOME/.zshrc"
 alias vrc="vim $HOME/.vimrc"
 alias hibernate="systemctl hibernate"
 alias vf='vim $(fzf)'
-alias tmux='tmux -f ~/.dotfiles/tmux/.tmux.conf'
+alias tmux='tmux -f ~/.dotfiles/mac/tmux/.tmux.conf'
 alias sort-mirrors="""
 	export TMPFILE="$(mktemp)"; \
 	sudo true; \
