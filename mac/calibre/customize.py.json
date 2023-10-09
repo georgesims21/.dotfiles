@@ -1,0 +1,18 @@
+{
+  "disabled_plugins": {
+    "__class__": "set",
+    "__value__": []
+  },
+  "enabled_plugins": {
+    "__class__": "set",
+    "__value__": [
+      "DeDRM"
+    ]
+  },
+  "filetype_mapping": {},
+  "plugin_customization": {},
+  "plugins": {
+    "DeDRM": "/home/george/.config/calibre/plugins/DeDRM.zip",
+    "Obok DeDRM": "/home/george/.config/calibre/plugins/Obok DeDRM.zip"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "accounts": {
+    "georgesims21_23@kindle.com": [
+      "EPUB, TPZ",
+      true,
+      true
+    ]
+  },
+  "aliases": {},
+  "encryption": "TLS",
+  "from_": "george.sims.nl@gmail.com",
+  "relay_host": "mail.gmx.com",
+  "relay_password": "44683035215e7524444d5a6b4b4e5449",
+  "relay_port": 587,
+  "relay_username": "george.sims.nl@gmail.com",
+  "subjects": {},
+  "tags": {}
+}

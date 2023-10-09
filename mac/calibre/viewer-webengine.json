@@ -1,0 +1,72 @@
+{
+  "main_window_geometry": {
+    "__class__": "bytearray",
+    "__value__": "AdnQywADAAAAAAPEAAAAIgAAB3cAAAQvAAAAAAAAAAAAAAJ/AAACzwAAAAACAAAAB4AAAAPEAAAAIgAAB3cAAAQv"
+  },
+  "main_window_state": {
+    "__class__": "bytearray",
+    "__value__": "AAAA/wAAAAH9AAAAAgAAAAAAAAAAAAAAAPwCAAAAAvsAAAAQAHQAbwBjAC0AZABvAGMAawAAAAAA/////wAAAIoA////+wAAABYAcwBlAGEAcgBjAGgALQBkAG8AYwBrAAAAAAD/////AAAAmgD///8AAAABAAAAAAAAAAD8AgAAAAT7AAAAFgBsAG8AbwBrAHUAcAAtAGQAbwBjAGsAAAAAAP////8AAACEAP////sAAAAcAGIAbwBvAGsAbQBhAHIAawBzAC0AZABvAGMAawAAAAAA/////wAAAPIA////+wAAABwAaQBuAHMAcABlAGMAdABvAHIALQBkAG8AYwBrAAAAAAD/////AAAAFAD////7AAAAHgBoAGkAZwBoAGwAaQBnAGgAdABzAC0AZABvAGMAawAAAAAA/////wAAANIA////AAADtAAABA4AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAAAAAAAAQAAAB4AYQBjAHQAaQBvAG4AcwBfAHQAbwBvAGwAYgBhAHICAAAAAP////8AAAAAAAAAAA=="
+  },
+  "old_prefs_migrated": true,
+  "session_data": {
+    "controls_help_shown_count": 2,
+    "standalone_font_settings": {},
+    "standalone_misc_settings": {
+      "remember_last_read": true,
+      "remember_window_geometry": false,
+      "save_annotations_in_ebook": true,
+      "singleinstance": false
+    },
+    "standalone_recently_opened": [
+      {
+        "authors": [
+          "Nemeth Evi",
+          "Snyder Garth",
+          "Hein Trent R.",
+          "Whaley Ben",
+          "Mackin Dan"
+        ],
+        "key": "/home/george/Calibre Library/Nemeth Evi/UNIX and Linux System Administration Handbook (179)/UNIX and Linux System Administration Handb - Nemeth Evi.azw3",
+        "pathtoebook": "/home/george/Calibre Library/Nemeth Evi/UNIX and Linux System Administration Handbook (179)/UNIX and Linux System Administration Handb - Nemeth Evi.azw3",
+        "timestamp": "2022-05-31T20:00:31.487Z",
+        "title": "UNIX and Linux System Administration Handbook"
+      },
+      {
+        "authors": [
+          "Aldous Huxley"
+        ],
+        "key": "/home/george/Calibre Library/Aldous Huxley/Brave New World (186)/Brave New World - Aldous Huxley.azw3",
+        "pathtoebook": "/home/george/Calibre Library/Aldous Huxley/Brave New World (186)/Brave New World - Aldous Huxley.azw3",
+        "timestamp": "2022-05-31T20:00:11.906Z",
+        "title": "Brave New World"
+      },
+      {
+        "authors": [
+          "Mario Puzo"
+        ],
+        "key": "/home/george/Calibre Library/Mario Puzo/Omerta (6)/Omerta - Mario Puzo.azw3",
+        "pathtoebook": "/home/george/Calibre Library/Mario Puzo/Omerta (6)/Omerta - Mario Puzo.azw3",
+        "timestamp": "2022-05-31T19:58:49.930Z",
+        "title": "Omerta"
+      },
+      {
+        "authors": [
+          "Bryson Payne"
+        ],
+        "key": "/home/george/Calibre Library/Bryson Payne/Learn Java the Easy Way_ A Hands-On Introduction to Programming (93)/Learn Java the Easy Way_ A Hands-On Introd - Bryson Payne.mobi",
+        "pathtoebook": "/home/george/Calibre Library/Bryson Payne/Learn Java the Easy Way_ A Hands-On Introduction to Programming (93)/Learn Java the Easy Way_ A Hands-On Introd - Bryson Payne.mobi",
+        "timestamp": "2022-05-31T13:14:46.802Z",
+        "title": "learnjavatheeasyway"
+      },
+      {
+        "authors": [
+          "Bryson Payne"
+        ],
+        "key": "/home/george/Calibre Library/Bryson Payne/Learn Java the Easy Way_ A Hands-On Introduction to Programming (93)/Learn Java the Easy Way_ A Hands-On Introd - Bryson Payne.epub",
+        "pathtoebook": "/home/george/Calibre Library/Bryson Payne/Learn Java the Easy Way_ A Hands-On Introduction to Programming (93)/Learn Java the Easy Way_ A Hands-On Introd - Bryson Payne.epub",
+        "timestamp": "2022-05-31T13:13:18.550Z",
+        "title": "Learn Java the Easy Way: A Hands-On Introduction to Programming"
+      }
+    ]
+  }
+}

@@ -1,0 +1,304 @@
+# SWAY config
+
+# ----- Mod key ----- #
+
+# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+set $mod Mod1
+
+# ----- Display ----- #
+
+# Set keyboard delay rate
+input * repeat_delay 250
+input * repeat_rate 25
+
+# Set wallpaper
+output "*" bg "$HOME/Pictures/wallpapers/san-francisco-4k-wallpaper.jpg" fill
+
+# ----- Autostart ----- #
+
+# autohide mouse cursor
+exec --no-startup-id unclutter -idle 1 -jitter 2
+
+# start insync client
+#exec --no-startup-id insync start
+
+# run tmux on first workspace on login,
+# attatch to most recently closed session if exists
+# exec --no-startup-id alacritty -e "tmux a || tmux new"
+
+# connect to VPN
+#exec --no-startup-id nordvpn connect
+
+# start bluetooth client
+#exec_always --no-startup-id blueman-applet
+
+# For battery status icon
+#exec --no-startup-id cbatticon
+
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+
+# ----- Basics ----- #
+
+# kill focused window
+bindsym $mod+q kill
+
+# hide/unhide i3status bar
+bindsym $mod+m bar mode toggle
+
+# Focus window on mouse movement
+focus_follows_mouse no
+
+# reload the configuration file
+bindsym $mod+Shift+r reload
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout tabbed
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# split orientation
+bindsym $mod+t split toggle
+
+# toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border pixel 1
+#new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+# set font
+font pango:inconsolata 16
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# lockscreen
+set $swaylock swaylock \
+    -f \
+	--screenshots \
+  --color 000000 \
+  --inside-ver-color 000000 \
+	--clock \
+	--indicator \
+	--indicator-radius 100 \
+	--indicator-thickness 7 \
+	--effect-blur 7x5 \
+	--effect-vignette 0.5:0.5 \
+	--ring-color bb00cc \
+	--key-hl-color 880033 \
+	--line-color 00000000 \
+	--inside-color 00000088 \
+	--separator-color 00000000 \
+	--grace 2 \
+	--fade-in 0.2 \
+  --font-size 50
+
+bindsym $mod+Shift+x exec --no-startup-id $swaylock
+
+# ----- Main program shortcuts ----- #
+set $terminal 'alacritty'
+
+bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
+bindsym $mod+d exec --no-startup-id wofi -show run
+bindsym $mod+w exec --no-startup-id google-chrome-stable
+bindsym $mod+r exec --no-startup-id $terminal -e ranger
+bindsym $mod+o exec --no-startup-id zathura
+bindsym $mod+v exec --no-startup-id vlc
+bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+p exec --no-startup-id grimshot --notify copy active
+bindsym $mod+Shift+p exec --no-startup-id grimshot --notify copy area
+
+# ----- Window/container options ----- #
+
+set $ws1 "10:"
+set $ws2 "2:"
+set $ws3 "3:"
+#set $ws4 "4:"
+#set $ws5 "5:"
+set $ws4 "4:"
+#set $ws7 7
+#set $ws8 "8:"
+#set $ws9 "9:"
+set $ws0 "1:"
+
+# set $ws1 1
+# set $ws2 2
+# set $ws3 3
+# set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+# set $ws0 10
+
+# ----- Open on specific workspace ----- #
+
+#assign [class="jetbrains-clion"] $ws2
+#assign [class="firefox"] $ws3
+#assign [class="emacs"] $ws4
+#assign [class="VirtualBox Manager"] $ws5
+#assign [class="VirtualBox Machine"] $ws5
+
+# workspace $ws0 output DP-2
+workspace $ws1 output eDP-1
+# workspace $ws2 output DP-3
+# workspace $ws3 output DP-3
+# workspace $ws4 output DP-3
+# workspace $ws5 output DP-3
+# workspace $ws6 output DP-3
+# workspace $ws7 output DP-3
+# workspace $ws8 output DP-3
+# workspace $ws9 output DP-3
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# Move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
+bindsym $mod+Ctrl+0 move container to workspace $ws0
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
+
+# Resize currently focused window
+bindsym $mod+Shift+Y resize shrink width 5 px or 5 ppt
+bindsym $mod+Shift+O resize grow width 5 px or 5 ppt
+bindsym $mod+Shift+I resize shrink height 5 px or 5 ppt
+bindsym $mod+Shift+U resize grow height 5 px or 5 ppt
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+
+#----- i3-gaps ----- #
+
+# Set inner/outer gaps
+gaps inner 5
+gaps outer 2
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders no_gaps
+
+# ----- swaybar ----- #
+
+bar { 
+    swaybar_command waybar
+}
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  client.focused          #FDF6E3 #242323 #FDF6E3 #FDF6E3 #FFFFFF
+  client.focused_inactive #333333 #242323 #FDF6E3 #454948
+  client.unfocused        #333333 #242323 #FDF6E3 #454948
+  client.urgent           #242323 #242323 #FDF6E3 #268BD2
+  client.placeholder      #000000 #242323 #FDF6E3 #000000
+
+  client.background       #2B2C2B
+
+# ----- Sound ----- #
+
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec --no-startup-id terminal -e 'alsamixer'
+
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86Search exec bemenu-run
+
+# ----- Brightness ----- #
+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+
+# ----- Touchpad ----- #
+
+input type:touchpad {
+    tap enabled
+}
+
+# ----- Idle ----- #
+
+exec swayidle -w \
+    timeout 1800 "$swaylock" \
+    timeout 1805 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'playerctl pause' \
+    before-sleep "$swaylock"
+
+# To make screen sharing work in google meets
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Output screens for home: [laptop | 4k | 1080p (90* rotation)]
+output eDP-1 pos 0,0 scale 1.2
+output DP-1 mode --custom 3840x2160@30Hz pos 1600,0 scale 1.5
+# output DP-2 scale 1 transform 90

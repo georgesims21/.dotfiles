@@ -21,9 +21,8 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "Jetbrains Mono" :size 24))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Medium))
 ;; (setq doom-font (font-spec :family "Font Awesome 5 Free" :size 18))
-;; (setq doom-font (font-spec :family "Noto sans" :size 18))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -31,6 +30,17 @@
 (setq doom-theme 'doom-gruvbox)
 
 ;; Packages
+;; === gh-copilot
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+
 ;; === lsp === src: https://geeksocket.in/posts/emacs-lsp-go/
 ; Company mode
 (setq company-idle-delay 0)
@@ -83,16 +93,17 @@
         (let* ((base-branch (magit-get-current-branch))
                         (head-branch (magit-read-other-branch "Head branch")))
               (magit-shell-command "gh pr create --draft --fill | tee /dev/tty | pbcopy")))
+(define-key magit-mode-map (kbd "+") #'magit-create-pull-request-draft)
 
-(defun magit-create-pull-request-regular ()
-    "Create a regular pull request using GitHub CLI."
-      (interactive)
-        (let* ((base-branch (magit-get-current-branch))
-                        (head-branch (magit-read-other-branch "Head branch")))
-              (magit-shell-command "gh pr create --fill | tee /dev/tty | pbcopy")))
+;; (defun magit-create-pull-request-regular ()
+;;     "Create a regular pull request using GitHub CLI."
+;;       (interactive)
+;;         (let* ((base-branch (magit-get-current-branch))
+;;                         (head-branch (magit-read-other-branch "Head branch")))
+;;               (magit-shell-command "gh pr create --fill | tee /dev/tty | pbcopy")))
 
-(define-key magit-mode-map (kbd "=") #'magit-create-pull-request-draft)
-(define-key magit-mode-map (kbd "+") #'magit-create-pull-request-regular)
+;; (define-key magit-mode-map (kbd "+") #'magit-create-pull-request-regular)
+
 
 ;; === org mode ===
 ;; If you use `org' and don't want your org files in the default location below,
@@ -129,3 +140,19 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Terraform mode
+;; auto-format any files with the .tf extension. This mode will auto-enable
+;; when a file with extension .tf is opened.
+;; (after! terraform-mode
+;;   (add-hook 'terraform-mode-hook
+;;             (lambda ()
+;;               (add-hook 'after-save-hook
+;;                         (lambda ()
+;;                           (when (eq major-mode 'terraform-mode)
+;;                             (let ((formatted-content (shell-command-to-string (format "terraform fmt -write=false -diff -" buffer-file-name))))
+;;                               (setq inhibit-read-only t)
+;;                               (erase-buffer)
+;;                               (insert formatted-content)
+;;                               (setq inhibit-read-only nil))))))))
+

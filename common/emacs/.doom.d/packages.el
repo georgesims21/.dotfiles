@@ -22,6 +22,7 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 
+(package! undo-fu)
 (package! ein)
 (package! groovy-mode)
 (package! yaml-mode)
@@ -31,6 +32,11 @@
 (package! dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 (package! flycheck)
+(package! org-journal)
+(package! hydra)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+
 ;; (add-to-list 'auto-mode-alist '("*.sh" . flycheck))
 
 
