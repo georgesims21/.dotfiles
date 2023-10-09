@@ -1,5 +1,5 @@
 set -o vi
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:/usr/local/go/bin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin
 
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
@@ -9,10 +9,9 @@ export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export ANKI_WAYLAND=1
-#export GO111MODULE=on go get golang.org/x/tools/gopls@latest
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="${PATH}:${GOBIN}"
 
 bindkey -v
 export KEYTIMEOUT=1
