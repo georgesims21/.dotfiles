@@ -36,6 +36,7 @@
 (package! hydra)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+
 ;; (add-to-list 'auto-mode-alist '("*.sh" . flycheck))
 
 

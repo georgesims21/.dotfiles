@@ -1,0 +1,19 @@
+{
+  "add a plugin dialog": "/home/george/Downloads/DeDRM_tools_10.0.2",
+  "add books dialog dir": "/home/george/Downloads/amazon-books",
+  "add books dialog dir-last-used-filter-spec-all-files": false,
+  "auto add path choose": "/home/george/Calibre Library/AUTOADD",
+  "recursive book import root dir dialog": "/home/george/Calibre Library/AUTOADD",
+  "sort_history": [
+    [
+      "timestamp",
+      false
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "kindle_pw",
+  "welcome_wizard_was_run": true
+}

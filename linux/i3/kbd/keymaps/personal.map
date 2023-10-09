@@ -1,0 +1,7 @@
+# Use $ sudo loadkeys ~/.dotfiles/i3/kbd/keymaps/personal.map to activate for this session.
+# make sure this file path is used in the KEY variable in /etc/vconsole.conf for permanent
+# solution
+
+# Swap caps lock and escape for vim
+keycode 1 = Caps_Lock
+keycode 58 = Escape

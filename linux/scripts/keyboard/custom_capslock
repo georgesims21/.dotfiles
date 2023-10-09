@@ -1,0 +1,7 @@
+default partial xkb_symbols custom {
+    key <CAPS> {
+        type[Group1] = TWO_LEVEL,
+        symbols[Group1] = [ Escape, Escape ]
+    };
+    modifier_map Control { <CAPS> };
+};

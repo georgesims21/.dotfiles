@@ -40,6 +40,7 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
+
 ;; === lsp === src: https://geeksocket.in/posts/emacs-lsp-go/
 ; Company mode
 (setq company-idle-delay 0)
@@ -103,6 +104,7 @@
 
 ;; (define-key magit-mode-map (kbd "+") #'magit-create-pull-request-regular)
 
+
 ;; === org mode ===
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -153,3 +155,4 @@
 ;;                               (erase-buffer)
 ;;                               (insert formatted-content)
 ;;                               (setq inhibit-read-only nil))))))))
+
