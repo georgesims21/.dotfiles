@@ -7,17 +7,14 @@ set $mod Mod1
 
 # ----- Display ----- #
 
-# Set keyboard delay rate
-input * repeat_delay 250
-input * repeat_rate 25
 
 # Set wallpaper
-output "*" bg "$HOME/Pictures/wallpapers/san-francisco-4k-wallpaper.jpg" fill
+#output "*" bg "$HOME/Pictures/wallpapers/san-francisco-4k-wallpaper.jpg" fill
 
 # ----- Autostart ----- #
 
 # autohide mouse cursor
-exec --no-startup-id unclutter -idle 1 -jitter 2
+#exec --no-startup-id unclutter -idle 1 -jitter 2
 
 # start insync client
 #exec --no-startup-id insync start
@@ -35,11 +32,11 @@ exec --no-startup-id unclutter -idle 1 -jitter 2
 # For battery status icon
 #exec --no-startup-id cbatticon
 
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id fix_xcursor
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id nm-applet
+# exec --no-startup-id xfce4-power-manager
 
 # ----- Basics ----- #
 
@@ -47,7 +44,7 @@ exec --no-startup-id xfce4-power-manager
 bindsym $mod+q kill
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+#bindsym $mod+m bar mode toggle
 
 # Focus window on mouse movement
 focus_follows_mouse no
@@ -84,47 +81,47 @@ default_border pixel 1
 hide_edge_borders none
 
 # set font
-font pango:inconsolata 16
+font pango:inconsolata 18
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
 # lockscreen
-set $swaylock swaylock \
-    -f \
-	--screenshots \
-  --color 000000 \
-  --inside-ver-color 000000 \
-	--clock \
-	--indicator \
-	--indicator-radius 100 \
-	--indicator-thickness 7 \
-	--effect-blur 7x5 \
-	--effect-vignette 0.5:0.5 \
-	--ring-color bb00cc \
-	--key-hl-color 880033 \
-	--line-color 00000000 \
-	--inside-color 00000088 \
-	--separator-color 00000000 \
-	--grace 2 \
-	--fade-in 0.2 \
-  --font-size 50
+# set $swaylock swaylock \
+#     -f \
+# 	--screenshots \
+#   --color 000000 \
+#   --inside-ver-color 000000 \
+# 	--clock \
+# 	--indicator \
+# 	--indicator-radius 100 \
+# 	--indicator-thickness 7 \
+# 	--effect-blur 7x5 \
+# 	--effect-vignette 0.5:0.5 \
+# 	--ring-color bb00cc \
+# 	--key-hl-color 880033 \
+# 	--line-color 00000000 \
+# 	--inside-color 00000088 \
+# 	--separator-color 00000000 \
+# 	--grace 2 \
+# 	--fade-in 0.2 \
+#   --font-size 50
 
-bindsym $mod+Shift+x exec --no-startup-id $swaylock
+# bindsym $mod+Shift+x exec --no-startup-id $swaylock
 
 # ----- Main program shortcuts ----- #
 set $terminal 'alacritty'
 
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -e tmux
-bindsym $mod+d exec --no-startup-id wofi -show run
+# bindsym $mod+d exec --no-startup-id wofi -show run
 bindsym $mod+w exec --no-startup-id google-chrome-stable
 bindsym $mod+r exec --no-startup-id $terminal -e ranger
-bindsym $mod+o exec --no-startup-id zathura
-bindsym $mod+v exec --no-startup-id vlc
+# bindsym $mod+o exec --no-startup-id zathura
+# bindsym $mod+v exec --no-startup-id vlc
 bindsym $mod+e exec --no-startup-id emacs
-bindsym $mod+p exec --no-startup-id grimshot --notify copy active
-bindsym $mod+Shift+p exec --no-startup-id grimshot --notify copy area
+# bindsym $mod+p exec --no-startup-id grimshot --notify copy active
+# bindsym $mod+Shift+p exec --no-startup-id grimshot --notify copy area
 
 # ----- Window/container options ----- #
 
@@ -159,7 +156,7 @@ set $ws9 9
 #assign [class="VirtualBox Machine"] $ws5
 
 # workspace $ws0 output DP-2
-workspace $ws1 output eDP-1
+# workspace $ws1 output eDP-1
 # workspace $ws2 output DP-3
 # workspace $ws3 output DP-3
 # workspace $ws4 output DP-3
@@ -260,8 +257,8 @@ bar {
 
 # ----- Sound ----- #
 
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec --no-startup-id terminal -e 'alsamixer'
+# exec --no-startup-id volumeicon
+# bindsym $mod+Ctrl+m exec --no-startup-id terminal -e 'alsamixer'
 
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -284,14 +281,21 @@ input type:touchpad {
     tap enabled
 }
 
+input type:keyboard {
+  # Set keyboard delay rate
+  repeat_delay 250
+  repeat_rate 25
+  xkb_options caps:swapescape
+}
+
 # ----- Idle ----- #
 
-exec swayidle -w \
-    timeout 1800 "$swaylock" \
-    timeout 1805 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'playerctl pause' \
-    before-sleep "$swaylock"
+# exec swayidle -w \
+#     timeout 1800 "$swaylock" \
+#     timeout 1805 'swaymsg "output * dpms off"' \
+#     resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'playerctl pause' \
+#     before-sleep "$swaylock"
 
 # To make screen sharing work in google meets
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -299,6 +303,6 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Output screens for home: [laptop | 4k | 1080p (90* rotation)]
-output eDP-1 pos 0,0 scale 1.2
-output DP-1 mode --custom 3840x2160@30Hz pos 1600,0 scale 1.5
+# output eDP-1 pos 0,0 scale 1.2
+# output DP-1 mode --custom 3840x2160@30Hz pos 1600,0 scale 1.5
 # output DP-2 scale 1 transform 90
