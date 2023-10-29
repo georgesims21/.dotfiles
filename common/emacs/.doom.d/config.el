@@ -24,7 +24,7 @@
 
 (if (eq system-type 'darwin) ; Check if the system is macOS
     (setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Medium)) ; Set font size for macOS
-  (setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Bold))) ; Set font size for Linux
+  (setq doom-font (font-spec :family "JetBrains Mono" :size 24 :weight 'Bold))) ; Set font size for Linux
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
