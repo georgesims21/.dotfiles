@@ -24,7 +24,7 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 (if (eq system-type 'darwin) ; Check if the system is macOS
-    (setq doom-font (font-spec :family "JetBrains Mono" :size 20 :weight 'Medium)) ; Set font size for macOS
+    (setq doom-font (font-spec :family "JetBrains Mono" :size 18 :weight 'Medium)) ; Set font size for macOS
   (setq doom-font (font-spec :family "JetBrains Mono" :size 24 :weight 'Bold))) ; Set font size for Linux
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
