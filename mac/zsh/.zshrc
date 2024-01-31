@@ -1,5 +1,5 @@
 set -o vi
-export PATH=/usr/local/opt/texinfo/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.rd/bin:$HOME/Scripts:/opt/h-m-m
+export PATH=/usr/local/opt/texinfo/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.dotfiles/scripts:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.rd/bin:$HOME/Scripts:/opt/h-m-m:/opt/homebrew/bin
 
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
