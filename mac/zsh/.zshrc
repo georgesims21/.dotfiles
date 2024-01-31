@@ -24,7 +24,6 @@ SPACESHIP_VI_MODE_SHOW=false
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(
-    fzf-zsh-plugin
     git
     #archlinux
     cp
@@ -34,8 +33,8 @@ plugins=(
     vi-mode
     vim-interaction
     zsh-autosuggestions
-    zsh-syntax-highlighting
     kube-ps1
+    fzf-zsh-plugin
     )
 source $ZSH/oh-my-zsh.sh
 
@@ -124,3 +123,4 @@ export PATH="/Users/george.sims/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
