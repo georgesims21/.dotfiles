@@ -20,7 +20,7 @@ yabai -m config                                 \
     window_zoom_persist          on             \
     window_shadow                on             \
     window_animation_duration    0.0            \
-    window_animation_frame_rate  120            \
+    window_animation_frame_rate  0            \
     window_opacity		 off		\
     window_opacity_duration      0.0            \
     window_topmost		 off		\
@@ -32,10 +32,10 @@ yabai -m config                                 \
     split_type                   auto           \
     auto_balance                 off            \
     top_padding                  0             \
-    bottom_padding               12             \
-    left_padding                 12             \
-    right_padding                12             \
-    window_gap                   06             \
+    bottom_padding               0             \
+    left_padding                 0             \
+    right_padding                0             \
+    window_gap                   0             \
     layout                       bsp            \
     mouse_modifier               fn             \
     mouse_action1                move           \
@@ -48,10 +48,7 @@ yabai -m rule --add app='^System Preferences$' manage=off
 yabai -m rule --add app='^Cisco Secure Client$' manage=off
 yabai -m rule --add title='Preferences$' manage=off
 
-
 # float settings windows
 yabai -m rule --add title='Settings$' manage=off
-
-
 
 echo "yabai configuration loaded.."
